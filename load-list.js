@@ -28,12 +28,12 @@ window.load = `
     modal.class.js
     app.class.js
     game.class.js
+    dice.class.js
 
 
 
   templates/
     bootstrap-size.html
     game.html
-    userScoreList.html
     dice.html
 `;
