@@ -7,6 +7,7 @@ class Game extends Base {
       //users.createUsers(); 
       
       this.dice = new Dice('dice1');
+      this.diceTwo = new Dice('dice2');
       
       
      // var dices = new DiceList(); // skapar dicelist
@@ -20,6 +21,7 @@ class Game extends Base {
             // set button "Roll" to inactive
             $('#roll').attr("disabled", true);
             this.dice.rollDice();
+            this.diceTwo.rollDice();
            /* boolean b1 = users[0].setScore(()=>{
                 if(b1){
                     alert('Game done!');
@@ -30,6 +32,7 @@ class Game extends Base {
             
         }else{
             this.dice.rollDice();
+            this.diceTwo.rollDice();
         }
         
         //setTimeout(function(){ // timeout 1 sec för att vänta på rollDice metoden
