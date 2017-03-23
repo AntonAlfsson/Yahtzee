@@ -10,3 +10,22 @@ tr{
 .userScoreboard{
   width: 80px;
 }
+
+#dice{
+  border: solid black 2px;
+}
+
+#dice{
+  border: solid black 5px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+
+}
+
+h1{
+  font-size: 60px;
+  margin: 0;
+  padding: 0;
+
+}
