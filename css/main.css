@@ -13,6 +13,7 @@ tr{
 
 .dice{
     border: solid black 2px;
+    background: none;
     width: 100px;
     height: 100px;
     text-align: center;
