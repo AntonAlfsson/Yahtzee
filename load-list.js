@@ -35,4 +35,5 @@ window.load = `
     bootstrap-size.html
     game.html
     userScoreList.html
+    dice.html
 `;
