@@ -29,6 +29,7 @@ window.load = `
     app.class.js
     game.class.js
     dice.class.js
+    dice-list.class.js
 
 
 
