@@ -5,7 +5,8 @@ class Game extends Base {
       
       //var users = new UserList(); // skapar en userList
       //users.createUsers(); 
-      this.dice = new Dice();
+      
+      this.dice = new Dice('dice1');
       
       
      // var dices = new DiceList(); // skapar dicelist
