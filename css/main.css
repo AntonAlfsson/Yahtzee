@@ -6,3 +6,7 @@ tr{
   border: solid black 2px;
   text-align:center;
 }
+
+.userScoreboard{
+  width: 80px;
+}
