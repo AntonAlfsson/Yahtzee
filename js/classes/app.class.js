@@ -14,7 +14,7 @@ class App {
         var router = new Router({
 
           '/': ()=>{ this.showPage(this.game); }
-            
+
         });
 
       }
