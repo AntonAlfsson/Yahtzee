@@ -34,4 +34,5 @@ window.load = `
   templates/
     bootstrap-size.html
     game.html
+    userScoreList.html
 `;
