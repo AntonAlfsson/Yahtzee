@@ -27,9 +27,11 @@ window.load = `
     bootstrap-size.js
     modal.class.js
     app.class.js
-    
+    game.class.js
+
 
 
   templates/
     bootstrap-size.html
+    game.html
 `;

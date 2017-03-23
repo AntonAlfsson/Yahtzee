@@ -1,0 +1,8 @@
+.table {
+  width: 120px;
+}
+
+tr{
+  border: solid black 2px;
+  text-align:center;
+}
