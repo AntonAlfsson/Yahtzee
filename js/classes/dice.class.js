@@ -36,7 +36,6 @@ class Dice extends Base {
                 $(document).find(el).text("\u2685");
                 break;
         }
-        console.log(this.currentNumber);
 
     }
 
