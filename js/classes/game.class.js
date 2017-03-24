@@ -6,22 +6,18 @@ class Game extends Base {
       //var users = new UserList(); // skapar en userList
       //users.createUsers(); 
       
-      this.dice = new Dice('dice1');
-      this.diceTwo = new Dice('dice2');
-      
-      
-     // var dices = new DiceList(); // skapar dicelist
+      this.dices = new DiceList(); // skapar dicelist
       this.counter = 0;
   }
     
     
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
         this.counter++;
+        $('#tarning').append(this.dices);
         if(this.counter == 3){
             // set button "Roll" to inactive
             $('#roll').attr("disabled", true);
-            this.dice.rollDice();
-            this.diceTwo.rollDice();
+            this.dices.rollDice();
            /* boolean b1 = users[0].setScore(()=>{
                 if(b1){
                     alert('Game done!');
@@ -31,8 +27,7 @@ class Game extends Base {
             }); */
             
         }else{
-            this.dice.rollDice();
-            this.diceTwo.rollDice();
+            this.dices.rollDice();
         }
         
         //setTimeout(function(){ // timeout 1 sec för att vänta på rollDice metoden
