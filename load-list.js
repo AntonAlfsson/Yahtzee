@@ -27,9 +27,14 @@ window.load = `
     bootstrap-size.js
     modal.class.js
     app.class.js
-    
+    game.class.js
+    dice.class.js
+    dice-list.class.js
+
 
 
   templates/
     bootstrap-size.html
+    game.html
+    dice.html
 `;
