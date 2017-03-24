@@ -24,7 +24,7 @@ class UserList extends List {
 
             });
 
-            var b1 = window.confirm("Another user?"); // frågar efter ytterligare users om nej b1 = false och loopen bryts
+            var b1 = window.confirm("Another player?"); // frågar efter ytterligare users om nej b1 = false och loopen bryts
         }while(b1);
 
 
