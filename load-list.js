@@ -30,6 +30,7 @@ window.load = `
     game.class.js
     dice.class.js
     dice-list.class.js
+    user-list.class.js
 
 
 

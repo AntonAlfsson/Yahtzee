@@ -3,7 +3,7 @@ class Game extends Base {
   constructor(){
       super();
       
-      //var users = new UserList(); // skapar en userList
+      this.users = new UserList(); // skapar en userList
       //users.createUsers(); 
       
       this.dices = new DiceList(); // skapar dicelist
