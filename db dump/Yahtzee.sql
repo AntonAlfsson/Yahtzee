@@ -8,28 +8,28 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Yahtzee
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Yahtzee
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+USE `Yahtzee` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`User`
+-- Table `Yahtzee`.`User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`User` (
+CREATE TABLE IF NOT EXISTS `Yahtzee`.`User` (
   `userName` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`userName`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Game_Score`
+-- Table `Yahtzee`.`Game_Score`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Game_Score` (
+CREATE TABLE IF NOT EXISTS `Yahtzee`.`Game_Score` (
   `Score` INT NOT NULL,
   `Game` INT NOT NULL,
   PRIMARY KEY (`Score`))
@@ -37,9 +37,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`User_has_Game_Score`
+-- Table `Yahtzee`.`User_has_Game_Score`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`User_has_Game_Score` (
+CREATE TABLE IF NOT EXISTS `Yahtzee`.`User_has_Game_Score` (
   `User_userName` VARCHAR(45) NOT NULL,
   `Game_Score_Score` INT NOT NULL,
   PRIMARY KEY (`User_userName`, `Game_Score_Score`),
@@ -47,12 +47,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`User_has_Game_Score` (
   INDEX `fk_User_has_Game_Score_User_idx` (`User_userName` ASC),
   CONSTRAINT `fk_User_has_Game_Score_User`
     FOREIGN KEY (`User_userName`)
-    REFERENCES `mydb`.`User` (`userName`)
+    REFERENCES `Yahtzee`.`User` (`userName`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_User_has_Game_Score_Game_Score1`
     FOREIGN KEY (`Game_Score_Score`)
-    REFERENCES `mydb`.`Game_Score` (`Score`)
+    REFERENCES `Yahtzee`.`Game_Score` (`Score`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

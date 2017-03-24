@@ -1,19 +1,33 @@
 class UserList extends List {
 
-  constructor(){
-
-  }
-
-  createUsers(callback){
-
-    this.db.askForUser()
-  }
-
-  static get sqlQueries(){
-    return{
-      askForUser:
-      // Här skall man fråga efter användaren från databasen.
+    constructor(){
+        super();
+        this.createUsers();
     }
-  }
+
+    createUsers(){
+        var name = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
+
+    }
+
+
+
+
+
+
+
+
+    static get sqlQueries(){
+        return {
+            newUser: `
+                INSERT userName SET ?
+                `,
+            searchUser: `
+                Select * FROM User WHERE userName = ?
+                `
+        }
+    }
 
 }
+
+
