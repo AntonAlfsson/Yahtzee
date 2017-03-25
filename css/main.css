@@ -1,0 +1,21 @@
+.table {
+    width: 120px;
+}
+
+tr{
+    border: solid black 2px;
+    text-align:center;
+}
+
+.userScoreboard{
+    width: 80px;
+}
+
+.dice{
+    border: solid black 2px;
+    background: none;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 60px;
+}
