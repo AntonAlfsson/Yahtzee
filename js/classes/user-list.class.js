@@ -1,33 +1,33 @@
 class UserList extends List {
 
-    constructor(){
-        super();
-        this.createUsers();
+    constructor() {
+        super(User);
     }
 
-    createUsers(){
+    createUsers(callback){
         do{
-            var userName = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
+            var name = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
 
-            this.db.searchUser([userName], (data)=>{
+            this.db.searchUser([name], (data)=>{
                
                 if(!data.length){ // om det ej finns något i DB
                     this.db.newUser({ // skapas en ny användare i DB
-                        userName: userName
+                        userName: name
                     });
-                    //this.push(new User(userName)); // skapar objekt av användare
+                    this.push(new User(name)); // skapar objekt av användare
 
                 }else{
-                    //this.push(new User(data[0].userName));  // skapar ett objekt av user från DB
+                    this.push(new User(data[0].userName));  // skapar ett objekt av user från DB
                 }
 
 
             });
 
             var anotherUser = window.confirm("Another player?"); // frågar efter ytterligare users om nej b1 = false och loopen bryts
+            
         }while(anotherUser);
-
-
+        
+        callback && callback(this);
     }
 
 

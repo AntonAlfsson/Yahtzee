@@ -1,11 +1,10 @@
 class User extends Base {
 
 
-	constructor(){
-
+	constructor(name) {
 		super();
 
-		this.userName = '';
+		this.userName = name;
 
 		this.scoreList = [];
 
