@@ -9,7 +9,9 @@ class Game extends Base {
 
         this.users.createUsers(()=>{
             console.log(this.users);
-            
+            $(function(){
+                //  this.users.display('.scoreboardRad');
+            });
 
 
         });
@@ -17,11 +19,6 @@ class Game extends Base {
 
 
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
-        console.log(this.users);
-        $(function(){
-              //  this.users.display('.scoreboardRad');
-            });
-
         this.counter++;
         $('#tarning').append(this.dices);
         if(this.counter == 3){
