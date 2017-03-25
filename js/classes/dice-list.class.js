@@ -9,8 +9,8 @@ class DiceList extends List {
     
     createDices(){
         for(var i = 1; i < 6; i++){
-            var el = 'dice' + i;
-            this.push(new Dice(el));
+            var diceId = 'dice' + i; 
+            this.push(new Dice(diceId));
         }
     }
 

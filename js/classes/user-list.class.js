@@ -7,15 +7,15 @@ class UserList extends List {
 
     createUsers(){
         do{
-            var name = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
+            var userName = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
 
-            this.db.searchUser([name], (data)=>{
+            this.db.searchUser([userName], (data)=>{
                
                 if(!data.length){ // om det ej finns något i DB
                     this.db.newUser({ // skapas en ny användare i DB
-                        userName: name
+                        userName: userName
                     });
-                    //this.push(new User(name)); // skapar objekt av användare
+                    //this.push(new User(userName)); // skapar objekt av användare
 
                 }else{
                     //this.push(new User(data[0].userName));  // skapar ett objekt av user från DB
@@ -24,8 +24,8 @@ class UserList extends List {
 
             });
 
-            var b1 = window.confirm("Another player?"); // frågar efter ytterligare users om nej b1 = false och loopen bryts
-        }while(b1);
+            var anotherUser = window.confirm("Another player?"); // frågar efter ytterligare users om nej b1 = false och loopen bryts
+        }while(anotherUser);
 
 
     }
