@@ -1,34 +1,39 @@
-class User {
+class User extends Base {
 
 
 	constructor(){
-		var userName = '';
 
-		var scoreList = [];
+		super();
 
-		startScoreList(scoreList); //Hämtar metod för att skapa listan med 18 tomma platser
+		this.userName = '';
 
-	}
+		this.scoreList = [];
 
+		this.startScoreList(); //Hämtar metod för att skapa listan med 18 tomma platser
 
-	function setScore(list){
-	//Om något skrivs i input-fältet, returnera false
-	$('.score').on('input', function(){
-		return false;
-	});
-
-	//Loopar igenom listan och returnerar true om den är full - LYCKAS INTE MED DENNA
-	for (var i = 0; i < list.length; i++){ 
-		if ((list[i] !== '')){
-			return true;
-			}	
-		}
 	}
 
 	//Kanske ett sätt att få en lista med 18 tomma platser?
-	function startScoreList(list){
-		for (var i = 0; i < 17; i++){
-			list.push('');
+	startScoreList(){
+		for (var i = 0; i < 18; i++){
+			this.scoreList.push('');
+		}
+	}
+
+	//Hämtas av en annan klass och returnerar true eller false
+	setScore(){
+		console.log("setScore is active");
+	//Om något skrivs i input-fältet, returnera false
+	$('.score').on('input', function(){
+		console.log("skrivet!");
+		return false;
+	});
+
+	//Loopar igenom listan och returnerar true om den är full
+	for (var i = 0; i < this.scoreList.length; i++){ 
+		if ((this.scoreList[i] !== '')){
+			return true;
+			}	
 		}
 	}
 }
