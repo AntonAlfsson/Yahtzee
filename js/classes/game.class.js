@@ -36,4 +36,12 @@ class Game extends Base {
       //  }, 1000);
             
     }
+    
+     static get sqlQueries(){
+        return {
+            newUser: `
+INSERT User SET ?
+`
+        }
+    }
 }
