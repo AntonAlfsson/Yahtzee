@@ -3,18 +3,19 @@ class Game extends Base {
     constructor(){
         super();
 
-        this.users = new UserList(); // skapar en userList
+       // this.users = new UserList(); // skapar en userList
         this.dices = new DiceList(); // skapar dicelist
         this.counter = 0;
 
-        this.users.createUsers(()=>{
-            console.log(this.users);
+       /* this.users.createUsers((l)=>{
+            l && (this.users = l);
+            var me = this;
             $(function(){
-                //  this.users.display('.scoreboardRad');
+                console.log('me', me.users);
+                //$('#score').append(me.users);
+                //me.users.display('#score');
             });
-
-
-        });
+        });*/
     }
 
 

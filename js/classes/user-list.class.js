@@ -1,10 +1,17 @@
 class UserList extends List {
 
-    constructor() {
+    constructor(callback) {
         super(User);
+        console.log('initing userlist');
+        this.createUsers(callback);
     }
 
     createUsers(callback){
+        if(window.usersCreated){ 
+            callback && typeof callback == 'function' && callback();
+            return;            
+        }
+        window.usersCreated = true;
         do{
             var name = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
 
@@ -14,10 +21,14 @@ class UserList extends List {
                     this.db.newUser({ // skapas en ny användare i DB
                         userName: name
                     });
+                    
                     this.push(new User(name)); // skapar objekt av användare
+                    callback && typeof callback == 'function' && callback(this);
+
 
                 }else{
                     this.push(new User(data[0].userName));  // skapar ett objekt av user från DB
+                    callback && typeof callback == 'function' && callback(this);
                 }
 
 
@@ -27,14 +38,7 @@ class UserList extends List {
             
         }while(anotherUser);
         
-        callback && callback(this);
     }
-
-
-
-
-
-
 
 
     static get sqlQueries(){
