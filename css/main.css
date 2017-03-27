@@ -1,12 +1,28 @@
 .table {
-    width: 120px;
+  width: 100px;
+  padding: 0;
+}
+
+.scoreboardRad {
+  margin-left: 1px;
+  margin-top: 11px;
 }
 
 tr{
-    border: solid black 2px;
-    text-align:center;
+  border: solid black 2px;
+  text-align:center;
+  height: 10px;
 }
 
+td{
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px !important;
+  margin: 0 !important;
+}
+
+.userScoreboard{
+  width: 80px;
 .dice{
     border: solid black 2px;
     background: none;
