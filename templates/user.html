@@ -1,8 +1,15 @@
 User.addTemplate('default', function(){return `
 
     <div class="col-xs-2 userB">
-     <table class="table table-bordered userScoreboard">
-       <tbody>
+     <!--<table class="table table-bordered userScoreboard">
+       <tbody>-->
+       <table class="table table-bordered userScoreboard">
+         <tbody>
+           <tr>
+             <td>${this.userName}</td>
+           </tr>
+         </tbody>
+       </table>
          <tr>
            <input type="text" class="form-control" id="yahtzeeInput" input style="height:23px">
          </tr>
@@ -57,8 +64,8 @@ User.addTemplate('default', function(){return `
          <tr>
            <input type="text" class="form-control" id="yahtzeeInput" input style="height:25px">
          </tr>
-       </tbody>
-     </table>
+       <!--</tbody>
+     </table>-->
    </div>
 
 

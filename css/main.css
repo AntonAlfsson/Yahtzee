@@ -33,7 +33,7 @@ td{
   text-align: center;
 }
 
-.form-control:nth-child(18){
+.form-control:nth-child(19){
   border-bottom: solid 2px;
 }
 
@@ -50,7 +50,11 @@ td{
 }
 
 .userScoreboard{
-  width: 80px;
+  /*width: 80px;   den riktiga */
+  width: 60px;
+  margin-bottom: 0;
+  border-bottom: hidden;
+  border-left: hidden;
 }
 
 .dice{
@@ -64,4 +68,8 @@ td{
 
 .row{
     max-height: 600px;
+}
+
+.rollBtn{
+  margin-bottom: 20px;
 }
