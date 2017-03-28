@@ -3,25 +3,27 @@ class Game extends Base {
     constructor(){
         super();
 
-       // this.users = new UserList(); // skapar en userList
+        this.users = new UserList(); // skapar en userList
         this.dices = new DiceList(); // skapar dicelist
         this.counter = 0;
+    }
 
-       /* this.users.createUsers((l)=>{
-            l && (this.users = l);
-            var me = this;
-            $(function(){
-                console.log('me', me.users);
-                //$('#score').append(me.users);
-                //me.users.display('#score');
-            });
-        });*/
+    createUsers(){ 
+        $('#addUser').html('');
+        this.users.createUsers((user) => {
+            setTimeout(function(){
+                this.users = user;
+                console.log(this.users);
+                
+                this.users.display('#addUser');
+            }, 50);
+        });
+
     }
 
 
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
         this.counter++;
-        $('#tarning').append(this.dices);
         if(this.counter == 3){
             // set button "Roll" to inactive
             $('#roll').attr("disabled", true);
@@ -36,6 +38,7 @@ class Game extends Base {
 
         }else{
             this.dices.rollDice();
+            $('#user').attr("disabled", true); // det ska inte gå att lägga till users när spelet har börjat
         }
 
     }

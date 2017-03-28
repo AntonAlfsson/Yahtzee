@@ -9,6 +9,7 @@ class User extends Base {
 		this.scoreList = [];
 
 		this.startScoreList(); //Hämtar metod för att skapa listan med 18 tomma platser
+        var el = '#' + this.userName;
 
 	}
 
