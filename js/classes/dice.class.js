@@ -53,6 +53,9 @@ class Dice extends Base {
 
     reset(){ // återställer tärningen till kastbar ---- tänkt att nvändas mellan varje runda
         this.rollable = true;
+        var el = '#'+this.diceId; // sparar dice id i el tillsammans med # för att söka efter
+        $(el).css('background',"none");
+        $(document).find(el).text("");
     }
 
 

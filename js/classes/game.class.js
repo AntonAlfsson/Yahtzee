@@ -28,13 +28,18 @@ class Game extends Base {
             // set button "Roll" to inactive
             $('#roll').attr("disabled", true);
             this.dices.rollDice();
-            /* boolean b1 = users[0].setScore(()=>{
+            
+             this.users[0].setScore((b1)=>{
+                 console.log(b1);
                 if(b1){
                     alert('Game done!');
                 }else{
-                    this.counter = 1;
+                    this.counter = 0;
+                    this.dices.resetRoll();
+                    $('#roll').attr("disabled", false);
                 }
-            }); */
+            });
+            
 
         }else{
             this.dices.rollDice();
