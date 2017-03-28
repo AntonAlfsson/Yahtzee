@@ -7,10 +7,18 @@ class Game extends Base {
         this.dices = new DiceList(); // skapar dicelist
         this.counter = 0;
     }
-    
-    createUsers(){
-        this.users.createUsers();
-        console.log(this.users);
+
+    createUsers(){ 
+        $('#addUser').html('');
+        this.users.createUsers((user) => {
+            setTimeout(function(){
+                this.users = user;
+                console.log(this.users);
+                
+                this.users.display('#addUser');
+            }, 50);
+        });
+
     }
 
 

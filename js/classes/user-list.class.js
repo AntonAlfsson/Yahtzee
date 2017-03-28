@@ -5,8 +5,6 @@ class UserList extends List {
     }
 
     createUsers(callback){
-
-        do{
             var name = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
 
             this.db.searchUser([name], (data)=>{
@@ -27,10 +25,6 @@ class UserList extends List {
 
 
             });
-
-            var anotherUser = window.confirm("Another player?"); // frågar efter ytterligare users om nej b1 = false och loopen bryts
-
-        }while(anotherUser);
 
     }
 
