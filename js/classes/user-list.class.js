@@ -6,7 +6,14 @@ class UserList extends List {
 
     createUsers(callback){
             var name = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
-
+            if(name != null){
+                var userAlredyPlaying = true;
+                for(let i = 0; i < this.length; i++){
+                    if(this[i].userName == name){
+                        userAlredyPlaying = false;
+                    }
+                }
+                if(userAlredyPlaying){
             this.db.searchUser([name], (data)=>{
 
                 if(!data.length){ // om det ej finns något i DB
@@ -25,6 +32,10 @@ class UserList extends List {
 
 
             });
+            }else{
+                callback && typeof callback == 'function' && callback(this);
+            }
+            }
 
     }
 
