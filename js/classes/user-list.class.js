@@ -1,40 +1,44 @@
 class UserList extends List {
 
-    constructor(){
-        super();
-        this.createUsers();
+    constructor(callback) {
+        super(User);
+        console.log('initing userlist');
+        this.createUsers(callback);
     }
 
-    createUsers(){
+    createUsers(callback){
+        if(window.usersCreated){ 
+            callback && typeof callback == 'function' && callback();
+            return;            
+        }
+        window.usersCreated = true;
         do{
-            var userName = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
+            var name = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
 
-            this.db.searchUser([userName], (data)=>{
+            this.db.searchUser([name], (data)=>{
                
                 if(!data.length){ // om det ej finns något i DB
                     this.db.newUser({ // skapas en ny användare i DB
-                        userName: userName
+                        userName: name
                     });
-                    //this.push(new User(userName)); // skapar objekt av användare
+                    
+                    this.push(new User(name)); // skapar objekt av användare
+                    callback && typeof callback == 'function' && callback(this);
+
 
                 }else{
-                    //this.push(new User(data[0].userName));  // skapar ett objekt av user från DB
+                    this.push(new User(data[0].userName));  // skapar ett objekt av user från DB
+                    callback && typeof callback == 'function' && callback(this);
                 }
 
 
             });
 
             var anotherUser = window.confirm("Another player?"); // frågar efter ytterligare users om nej b1 = false och loopen bryts
+            
         }while(anotherUser);
-
-
+        
     }
-
-
-
-
-
-
 
 
     static get sqlQueries(){
