@@ -2,9 +2,9 @@ class Dice extends Base {
 
     constructor(propertyValues){
         super();
-        this.diceId = propertyValues;
+        this.diceId = propertyValues; // läger diceId som id i this html template
         this.rollable = true;
-        this.currentNumber = 1;
+        this.currentNumber = 1; // numret som tärningen för tillfället har
     }
 
     rollDice(){ // metod som kollar om tärningen går att kasta
@@ -15,10 +15,10 @@ class Dice extends Base {
 
     generateRandomNumber(){
         this.currentNumber = Math.floor(Math.random() * 6 + 1); // genererar ett numer mellan 1 - 6
-        var el = '#'+ this.diceId;
+        var el = '#'+ this.diceId; // sparar dice id i el tillsammans med # för att söka efter
         switch(this.currentNumber){
             case 1:
-                $(document).find(el).text("\u2680");
+                $(document).find(el).text("\u2680"); // tärning värde 1 - 6 
                 break;
             case 2:
                 $(document).find(el).text("\u2681");
@@ -42,7 +42,7 @@ class Dice extends Base {
     onDiceClick(){ // när man klickar på tärningen ändrar man om täningen skall gå att kasta eller ej
         if(this.rollable){
             this.rollable = false;
-            var el = '#'+this.diceId;
+            var el = '#'+this.diceId; // sparar dice id i el tillsammans med # för att söka efter
             $(el).css('background',"grey"); // om man vill behålla tärningen blir den gråmarkerad
         }else{
             this.rollable = true;

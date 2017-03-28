@@ -23,18 +23,21 @@ window.load = `
     list.class.js
     router.class.js
 
+
   js/classes/
     bootstrap-size.js
     modal.class.js
     app.class.js
+    user.class.js 
     game.class.js
     dice.class.js
     dice-list.class.js
-
+    user-list.class.js
 
 
   templates/
     bootstrap-size.html
     game.html
     dice.html
+    user.html
 `;
