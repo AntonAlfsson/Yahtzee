@@ -29,7 +29,7 @@ class Game extends Base {
             $('#roll').attr("disabled", true);
             this.dices.rollDice();
             
-             this.users[0].setScore((b1)=>{
+             this.users.setScore((b1)=>{
                  console.log(b1);
                 if(b1){
                     alert('Game done!');

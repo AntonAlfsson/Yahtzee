@@ -38,6 +38,13 @@ class UserList extends List {
         }
 
     }
+    
+    
+    setScore(callback){
+        for(let i = 0; i < this.length; i++){
+            this[i].setScore(callback);
+        }
+    }
 
 
     static get sqlQueries(){
