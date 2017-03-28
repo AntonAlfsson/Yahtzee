@@ -3,6 +3,12 @@ Game.addTemplate('default', function(){return `
 <div class="container">
     <h1>Yahtzee</h1>
 
+    <div class="row buttonRow">
+        <div class="col-xs-2">
+            <button type="button" id="user" class="btn btn-default" data-click="createUsers">Add Users</button>
+        </div>
+    </div>
+
     <div class="row scoreboardRad">
         <div class="col-xs-2">
             <table class="table table-bordered">
@@ -63,193 +69,7 @@ Game.addTemplate('default', function(){return `
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div class="col-xs-2">
-            <table class="table table-bordered userScoreboard">
-                <tbody>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="col-xs-2">
-            <table class="table table-bordered userScoreboard">
-                <tbody>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="col-xs-2">
-            <table class="table table-bordered userScoreboard">
-                <tbody>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="number" class="form-control" id="yahtzeeInput"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-       
-
-
-
+        </div>${this.users.display()}
     </div>
     <div class="row buttonRow">
         <div class="col-xs-2">

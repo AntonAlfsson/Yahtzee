@@ -1,27 +1,21 @@
 class UserList extends List {
 
-    constructor(callback) {
+    constructor() {
         super(User);
-        console.log('initing userlist');
-        this.createUsers(callback);
     }
 
     createUsers(callback){
-        if(window.usersCreated){ 
-            callback && typeof callback == 'function' && callback();
-            return;            
-        }
-        window.usersCreated = true;
+
         do{
             var name = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
 
             this.db.searchUser([name], (data)=>{
-               
+
                 if(!data.length){ // om det ej finns något i DB
                     this.db.newUser({ // skapas en ny användare i DB
                         userName: name
                     });
-                    
+
                     this.push(new User(name)); // skapar objekt av användare
                     callback && typeof callback == 'function' && callback(this);
 
@@ -35,9 +29,9 @@ class UserList extends List {
             });
 
             var anotherUser = window.confirm("Another player?"); // frågar efter ytterligare users om nej b1 = false och loopen bryts
-            
+
         }while(anotherUser);
-        
+
     }
 
 
