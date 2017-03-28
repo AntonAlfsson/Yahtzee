@@ -1,6 +1,6 @@
 .table {
   width: 100px;
-    max-height: 550px;
+  max-height: 550px;
   padding: 0;
 }
 
@@ -21,6 +21,34 @@ td{
   margin: 0 !important;
 }
 
+.form-control{
+  border-color: black;
+  width: 60px;
+  border-radius: 0;
+  border-bottom: hidden;
+  border-left: none;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 0;
+  text-align: center;
+}
+
+.form-control:nth-child(18){
+  border-bottom: solid 2px;
+}
+
+.userB {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 60px;
+}
+
+.gameB {
+  padding-right: 0 !important;
+  padding-left: 0;
+  width: 100px;
+}
+
 .userScoreboard{
   width: 80px;
 }
@@ -37,5 +65,3 @@ td{
 .row{
     max-height: 600px;
 }
-
-
