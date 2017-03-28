@@ -1,4 +1,4 @@
-class Game extends Base {
+    class Game extends Base {
 
     constructor(){
         super();
@@ -40,10 +40,33 @@ class Game extends Base {
 
     }
 
+    insertGameInDb(){
+        //Hämtar högsta idGame från databasen
+        this.db.getGame([idGame], (data)=>{
+            this.idGame = data[0].idGame;
+            callback && callback(this);
+        });
+
+        //Spara variabel med nya spelets idGame
+        var idGame = this.idGame + 1;
+
+        //Sparar nya idGame i databasen
+        this.db.newGame({ // skapas ett nytt game i DB
+                        idGame: idGame
+                    });
+  }
+
+
     static get sqlQueries(){
         return {
             newUser: `
-INSERT User SET ?
+            INSERT User SET ?
+`,
+            getGame: `
+            SELECT max(idGame) FROM Game
+`
+            newGame: `
+            INSERT Game SET ?
 `
         }
     }
