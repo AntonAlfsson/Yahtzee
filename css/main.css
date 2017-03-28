@@ -23,7 +23,7 @@ td{
 
 .form-control{
   border-color: black;
-  width: 60px;
+  width: 70px;
   border-radius: 0;
   border-bottom: hidden;
   border-left: none;
@@ -40,7 +40,7 @@ td{
 .userB {
   padding-left: 0 !important;
   padding-right: 0 !important;
-  width: 60px;
+  width: 70px;
 }
 
 .gameB {
@@ -50,8 +50,7 @@ td{
 }
 
 .userScoreboard{
-  /*width: 80px;   den riktiga */
-  width: 60px;
+  width: 70px;
   margin-bottom: 0;
   border-bottom: hidden;
   border-left: hidden;
