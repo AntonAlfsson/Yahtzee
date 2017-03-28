@@ -5,7 +5,6 @@ class User extends Base {
         super();
 
         this.userName = name;
-
         this.scoreList = [];
         this.id = '#' + this.userName; // id till scoreboard
 
@@ -22,34 +21,26 @@ class User extends Base {
 
     //Hämtas av en annan klass och returnerar true eller false
     setScore(callback){
-
         //Loopar igenom listan och returnerar true om den är full
-
-        console.log("setScore is active");
-
         var el = this; // sparar this i el eftersom vi förlorar this scopet i nästa function
-
         //Om något skrivs i input-fältet, returnera false
         $('.form-control').on('change', function(){
-
             el.setTotalScore();
-
-            console.log("skrivet!");
             callback(false);
         });
     }
 
     setTotalScore(){    
         var tot = 0;
-        
+
         for(let i = 0; i < 17; i++){
             this.scoreList[i] = $(this.id+i).val();
-            
+
             if($(this.id+i).val() != "" && this.id+i != this.id+6){
                 tot += parseInt($(this.id+i).val());
             }
         }
-        
+
         $(this.id+17).val(tot);
         this.setBonusHalfScore();  
     }
@@ -69,9 +60,5 @@ class User extends Base {
         }else{
             $(this.id+7).val(0);
         }
-
-
     }
-
-
 }
