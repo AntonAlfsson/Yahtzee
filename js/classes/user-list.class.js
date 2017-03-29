@@ -19,7 +19,15 @@ class UserList extends List {
                     if(!data.length){ // om det ej finns något i DB
                         this.db.newUser({ // skapas en ny användare i DB
                             userName: name
+
                         });
+
+                        this.db.gameHasUser((data)=>{
+
+                            User_userName: name
+
+                        });
+
 
                         this.push(new User(name)); // skapar objekt av användare
                         callback && typeof callback == 'function' && callback(this);
@@ -47,6 +55,7 @@ class UserList extends List {
     }
 
 
+
     static get sqlQueries(){
         return {
             newUser: `
@@ -54,6 +63,10 @@ INSERT User SET ?
 `,
             searchUser: `
 Select * FROM User WHERE userName = ?
+`
+,
+            gameHasUser: `
+INSERT Game_has_user SET ?
 `
         }
     }
