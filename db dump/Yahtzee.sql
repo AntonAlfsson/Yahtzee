@@ -44,7 +44,6 @@ CREATE TABLE IF NOT EXISTS `Yahtzee`.`Game_has_User` (
   `Game_idGame` INT NOT NULL,
   `User_userName` VARCHAR(45) NOT NULL,
   `score` INT NULL,
-  PRIMARY KEY (`Game_idGame`, `User_userName`),
   INDEX `fk_Game_has_User_User1_idx` (`User_userName` ASC),
   INDEX `fk_Game_has_User_Game_idx` (`Game_idGame` ASC),
   CONSTRAINT `fk_Game_has_User_Game`
