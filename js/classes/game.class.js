@@ -6,6 +6,7 @@ class Game extends Base {
         this.users = new UserList(); // skapar en userList
         this.dices = new DiceList(); // skapar dicelist
         this.counter = 0;
+        this.startGame();
     }
 
     createUsers(){ 
@@ -17,6 +18,27 @@ class Game extends Base {
                 
                 this.users.display('#addUser');
             }, 50);
+        });
+
+    }
+
+    startGame(){
+
+        var tempIdGame = 0;
+        var newIdGame = 0;
+
+        //Hämtar högsta idGame från databasen
+        this.db.getGame((data)=>{
+            tempIdGame = data[0].maxGame;
+            console.log('hej', data);
+
+            //Plussar på 
+            newIdGame = tempIdGame+1;
+        
+            //Lägger till nytt game i databasen
+            this.db.newGame({idGame: newIdGame}, (data)=>{
+                console.log('hoj', data);
+            });
         });
 
     }
@@ -50,8 +72,11 @@ class Game extends Base {
 
     static get sqlQueries(){
         return {
-            newUser: `
-INSERT User SET ?
+            getGame: `
+                SELECT max(idGame) as maxGame FROM Game limit 1
+`,        
+            newGame: `
+                INSERT into Game SET ?
 `
         }
     }
