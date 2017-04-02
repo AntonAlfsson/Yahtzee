@@ -7,6 +7,7 @@ class User extends Base {
         this.userName = name;
         this.scoreList = [];
         this.id = '#' + this.userName; // id till scoreboard
+        this.class = '.' + this.userName;
 
         this.startScoreList(); //Hämtar metod för att skapa listan med 18 tomma platser
 
@@ -18,19 +19,24 @@ class User extends Base {
             this.scoreList.push('');
         }
     }
+    
+    activeScoreBoard(){
+        $(this.class).removeAttr('disabled');
+    }
 
     //Hämtas av en annan klass och returnerar true eller false
     setScore(callback){
-        //Loopar igenom listan och returnerar true om den är full
         var el = this; // sparar this i el eftersom vi förlorar this scopet i nästa function
         //Om något skrivs i input-fältet, returnera false
-        $('.form-control').on('change', function(){
+        $(this.class).on('change', function(){
             el.setTotalScore();
             callback(false);
         });
     }
 
-    setTotalScore(){    
+    setTotalScore(){  
+        $(this.class).attr({'disabled': 'disabled'});
+        $(this.class).off();
         var tot = 0;
 
         for(let i = 0; i < 17; i++){

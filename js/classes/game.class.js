@@ -6,6 +6,7 @@ class Game extends Base {
         this.users = new UserList(); // skapar en userList
         this.dices = new DiceList(); // skapar dicelist
         this.counter = 0;
+        this.numberOfUsers = 0;
     }
 
     createUsers(){ 
@@ -14,7 +15,7 @@ class Game extends Base {
             setTimeout(function(){
                 this.users = user;
                 console.log(this.users);
-                
+
                 this.users.display('#addUser');
             }, 50);
         });
@@ -23,30 +24,40 @@ class Game extends Base {
 
 
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
-        this.counter++;
+
+        $('#user').attr("disabled", true); // det ska inte gå att lägga till users när spelet har börjat
+        this.users[this.numberOfUsers].activeScoreBoard(); // aktiverar första spelarens scoreboard
+
         if(this.counter == 3){
             // set button "Roll" to inactive
-            $('#roll').attr("disabled", true);
-            this.dices.rollDice();
-            
-             this.users.setScore((b1)=>{
-                 console.log(b1);
+            $('#roll').attr("disabled", true); 
+        }
+        this.dices.rollDice();
+
+        if(this.counter == 0){
+            this.users[this.numberOfUsers].setScore((b1)=>{
                 if(b1){
                     alert('Game done!');
                 }else{
                     this.counter = 0;
                     this.dices.resetRoll();
                     $('#roll').attr("disabled", false);
+                    this.nextUser();
                 }
             });
-            
-
-        }else{
-            this.dices.rollDice();
-            $('#user').attr("disabled", true); // det ska inte gå att lägga till users när spelet har börjat
         }
-
+        this.counter++;
     }
+
+    nextUser(){
+        if(this.numberOfUsers == this.users.length-1){
+            this.numberOfUsers = 0;
+        }else{
+            this.numberOfUsers++;
+        }
+    }
+
+
 
     static get sqlQueries(){
         return {
