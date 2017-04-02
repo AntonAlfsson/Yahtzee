@@ -6,9 +6,10 @@ class Game extends Base {
         this.users = new UserList(); // skapar en userList
         this.dices = new DiceList(); // skapar dicelist
         this.counter = 0;
-        this.startGame();
+        this.game = this.startGame();
     }
 
+    //Knappen Add users
     createUsers(){ 
         $('#addUser').html('');
         this.users.createUsers((user) => {
@@ -20,7 +21,11 @@ class Game extends Base {
             }, 50);
         });
 
+        //Ska hända efter att users har skapats för den här omgången - behöver hjälp med callback!
+        this.game.saveGameRoundToDB();
+
     }
+
 
     startGame(){
 
@@ -39,7 +44,18 @@ class Game extends Base {
             this.db.newGame({idGame: newIdGame}, (data)=>{
                 console.log('Lägger till nytt game i db', data);
             });
+
         });
+
+    }
+
+    saveGameRoundToDB(){
+        for (var user of userList){
+            this.db.newGameHasUser((data)=>{
+                User_username: user;
+                Game_idGame: this.game;
+            });
+        }
 
     }
 
@@ -77,6 +93,9 @@ class Game extends Base {
 `,        
             newGame: `
                 INSERT into Game SET ?
+`,
+            newGameHasUser: `
+                INSERT into Game_has_user SET ?
 `
         }
     }
