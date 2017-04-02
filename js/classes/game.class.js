@@ -47,7 +47,7 @@ class Game extends Base {
                 
                 this.users.display('#addUser');
 
-                thisGame.saveGameRoundToDB();
+                //thisGame.saveGameRoundToDB();
             }, 50);
         });
         
@@ -57,19 +57,20 @@ class Game extends Base {
     saveGameRoundToDB(){
         var userName;
 
-        console.log('hi', this.users);
         for (var user of this.users){
-            console.log('hej');
             userName = user.userName;
-            this.db.newGameHasUser({User_username: userName},(data)=>{
+            this.db.newGameHasUser({Game_idGame: this.idGame, User_username: userName},(data)=>{
                 console.log('lägger till user i game_has_user', userName);
             });
         }
-
     }
 
 
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
+        var thisGame = this;
+
+        thisGame.saveGameRoundToDB();
+
         this.counter++;
         if(this.counter == 3){
             // set button "Roll" to inactive
