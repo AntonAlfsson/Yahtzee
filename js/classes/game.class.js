@@ -6,31 +6,16 @@ class Game extends Base {
         this.users = new UserList(); // skapar en userList
         this.dices = new DiceList(); // skapar dicelist
         this.counter = 0;
-        this.game = this.startGame();
+        this.idGame; //Undefined here, will be defined in startGame()
+        this.startGame();
     }
 
-    //Knappen Add users
-    createUsers(){ 
-        $('#addUser').html('');
-        this.users.createUsers((user) => {
-            setTimeout(function(){
-                this.users = user;
-                console.log(this.users);
-                
-                this.users.display('#addUser');
-            }, 50);
-        });
-
-        //Ska hända efter att users har skapats för den här omgången - behöver hjälp med callback!
-        this.game.saveGameRoundToDB();
-
-    }
+    
 
 
     startGame(){
 
         var tempIdGame = 0;
-        var newIdGame = 0;
 
         //Hämtar högsta idGame från databasen
         this.db.getGame((data)=>{
@@ -38,10 +23,10 @@ class Game extends Base {
             console.log('Hämtar högsta idGame från db', data);
 
             //Plussar på 
-            newIdGame = tempIdGame+1;
+            this.idGame = tempIdGame+1;
         
             //Lägger till nytt game i databasen
-            this.db.newGame({idGame: newIdGame}, (data)=>{
+            this.db.newGame({idGame: this.idGame}, (data)=>{
                 console.log('Lägger till nytt game i db', data);
             });
 
@@ -49,11 +34,35 @@ class Game extends Base {
 
     }
 
+    //Knappen Add users
+    createUsers(){ 
+        var thisGame = this;
+
+        $('#addUser').html('');
+        this.users.createUsers((user) => {
+            //Efter att funktionen createUsers har kört klart, så gör de här sakerna:
+            setTimeout(function(){
+                this.users = user;
+                console.log(this.users);
+                
+                this.users.display('#addUser');
+
+                thisGame.saveGameRoundToDB();
+            }, 50);
+        });
+        
+
+    }
+
     saveGameRoundToDB(){
-        for (var user of userList){
-            this.db.newGameHasUser((data)=>{
-                User_username: user;
-                Game_idGame: this.game;
+        var userName;
+
+        console.log('hi', this.users);
+        for (var user of this.users){
+            console.log('hej');
+            userName = user.userName;
+            this.db.newGameHasUser({User_username: userName},(data)=>{
+                console.log('lägger till user i game_has_user', userName);
             });
         }
 
@@ -95,7 +104,7 @@ class Game extends Base {
                 INSERT into Game SET ?
 `,
             newGameHasUser: `
-                INSERT into Game_has_user SET ?
+                INSERT into Game_has_User SET ?
 `
         }
     }
