@@ -54,6 +54,7 @@ class Game extends Base {
 
     }
 
+    //Sparar data i Game_has_user
     saveGameRoundToDB(){
         var userName;
 
@@ -69,6 +70,7 @@ class Game extends Base {
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
         var thisGame = this;
 
+        //SpelId och alla användare sparas till DB
         thisGame.saveGameRoundToDB();
 
         this.counter++;
