@@ -42,19 +42,16 @@ class Game extends Base {
                     this.counter = 0;
                     this.dices.resetRoll();
                     $('#roll').attr("disabled", false);
-                    this.nextUser();
+
+                    if(this.numberOfUsers == this.users.length-1){
+                        this.numberOfUsers = 0;
+                    }else{
+                        this.numberOfUsers++;
+                    }
                 }
             });
         }
         this.counter++;
-    }
-
-    nextUser(){
-        if(this.numberOfUsers == this.users.length-1){
-            this.numberOfUsers = 0;
-        }else{
-            this.numberOfUsers++;
-        }
     }
 
 
