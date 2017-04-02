@@ -22,12 +22,6 @@ class UserList extends List {
 
                         });
 
-                        this.db.gameHasUser((data)=>{
-
-                            User_userName: name
-
-                        });
-
 
                         this.push(new User(name)); // skapar objekt av användare
                         callback && typeof callback == 'function' && callback(this);
