@@ -12,7 +12,7 @@ class Game extends Base {
         this.startGame();
     }
 
-    
+
 
 
     startGame(){
@@ -26,7 +26,7 @@ class Game extends Base {
 
             //Plussar på 
             this.idGame = tempIdGame+1;
-        
+
             //Lägger till nytt game i databasen
             this.db.newGame({idGame: this.idGame}, (data)=>{
                 console.log('Lägger till nytt game i db', data);
@@ -51,7 +51,7 @@ class Game extends Base {
                 //thisGame.saveGameRoundToDB();
             }, 50);
         });
-        
+
 
     }
 
@@ -61,7 +61,7 @@ class Game extends Base {
 
         for (var user of this.users){
             userName = user.userName;
-            this.db.newGameHasUser({Game_idGame: this.idGame, User_username: userName},(data)=>{
+            this.db.newGameHasUser({Game_idGame: this.idGame, User_username: userName},()=>{
                 console.log('lägger till user i game_has_user', userName);
             });
         }
@@ -72,19 +72,15 @@ class Game extends Base {
 
         $('#user').attr("disabled", true); // det ska inte gå att lägga till users när spelet har börjat
         this.users[this.currentUserPlaying].activeScoreBoard(); // aktiverar första spelarens scoreboard
-        
-        var thisGame = this;
-        //SpelId och alla användare sparas till DB
-        thisGame.saveGameRoundToDB();
 
         if(this.counter == 2){
             // set button "Roll" to inactive
             $('#roll').attr("disabled", true); 
         }
         this.dices.rollDice();
-        
+
         this.users[this.currentUserPlaying].getDices(this.dices); // skickar diceList till currentUserPlaying
-        
+
         if(this.counter == 0){
             this.users[this.currentUserPlaying].setScore((b1)=>{
                 if(b1){
@@ -97,9 +93,9 @@ class Game extends Base {
                     }else{
                         this.currentUserPlaying++;
                     }
-                    
+
                     this.gameDone();
-                    
+
                 }else{
                     this.counter = 0;
                     this.dices.resetRoll();
@@ -115,14 +111,15 @@ class Game extends Base {
         }
         this.counter++;
     }
-    
+
     gameDone(){
         this.numberOfUsersDone++;
         console.log(this.numberOfUsersDone);
         console.log(this.users.length);
         if(this.numberOfUsersDone == this.users.length){
-            
-            alert('Game Done!');
+
+            //SpelId och alla användare sparas till DB
+            this.saveGameRoundToDB();
         }
     }
 
@@ -131,13 +128,13 @@ class Game extends Base {
     static get sqlQueries(){
         return {
             getGame: `
-                SELECT max(idGame) as maxGame FROM Game limit 1
+SELECT max(idGame) as maxGame FROM Game limit 1
 `,        
             newGame: `
-                INSERT into Game SET ?
+INSERT into Game SET ?
 `,
             newGameHasUser: `
-                INSERT into Game_has_User SET ?
+INSERT into Game_has_User SET ?
 `
         }
     }
