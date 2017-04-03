@@ -61,7 +61,7 @@ class Game extends Base {
 
         for (var user of this.users){
             userName = user.userName;
-            this.db.newGameHasUser({Game_idGame: this.idGame, User_username: userName},(data)=>{
+            this.db.newGameHasUser({Game_idGame: this.idGame, User_username: userName},()=>{
                 console.log('lägger till user i game_has_user', userName);
             });
         }
