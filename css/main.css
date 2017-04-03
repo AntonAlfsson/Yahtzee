@@ -1,12 +1,13 @@
 body{
-  background-color: #158270;
+  background-color: black;
+  background-image: url("http://www.hdwallpaper.nu/wp-content/uploads/2017/01/dice-2.jpg");
+  background-size:cover;
 }
 
 .table {
   width: 100px;
   max-height: 550px;
   padding: 0;
-
 }
 
 .scoreboardRad {
@@ -14,15 +15,27 @@ body{
   margin-top: 11px;
 }
 
+.gamePage{
+  background-color: #158270;
+  height: 100vh;
+  border-width: 3px;
+  border-style: solid;
+  border-top: none;
+  border-bottom: none;
+  border-color: white;
+
+}
+
 tr{
   border: solid white 2px;
   text-align:center;
-  background-color: #0C4D42;
+  background-color: #567B8C;
 }
 
 td{
   font-size: 12px;
   font-weight: bold;
+  color: white;
   padding: 2px !important;
   margin: 0 !important;
 }
@@ -52,10 +65,12 @@ a{
 
 .navbarFluid{
   padding-left: 0;
+  padding-right: 0;
 }
 
 .navbar-collapse{
   padding-left: 0;
+  padding-right: 0;
 }
 
 .addUserButton{
