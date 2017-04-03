@@ -86,8 +86,10 @@ class Game extends Base {
         
         if(this.counter == 0){
             this.users[this.currentUserPlaying].setScore((b1)=>{
+                console.log(b1);
                 if(b1){
-                    alert('Game done!');
+                    this.gameDone();
+                    
                 }else{
                     this.counter = 0;
                     this.dices.resetRoll();

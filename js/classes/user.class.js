@@ -35,12 +35,13 @@ class User extends Base {
         var el = this; // sparar this i el eftersom vi förlorar this scopet i nästa function
         //Om något skrivs i input-fältet, returnera false
         $(this.class).on('change', function(){
-            el.setTotalScore();
-            callback(false);
+            el.setTotalScore((b1)=>{
+                callback(b1);
+            });
         });
     }
 
-    setTotalScore(){  
+    setTotalScore(callback){  
         $(this.class).attr({'disabled': 'disabled'});
         $(this.class).off();
         var tot = 0;
@@ -55,6 +56,16 @@ class User extends Base {
 
         $(this.id+17).val(tot);
         this.setBonusHalfScore();  
+        
+        var b1 = true;
+        for(let i = 0; i < 17; i++){
+            if(this.scoreList[i] == ""){
+                b1 = false;
+            }
+        }
+        return callback(b1);
+        
+        
     }
 
     setBonusHalfScore(){
