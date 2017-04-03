@@ -20,6 +20,12 @@ class User extends Base {
         }
     }
     
+    getDices(dices){
+        var diceNumber = [dices[0].currentNumber, dices[1].currentNumber, dices[2].currentNumber, dices[3].currentNumber, dices[4].currentNumber];
+        // nu har vi diceNumber med alla nr från seaste kastet att skicka vidare in i metoder
+        console.log('kast: ', diceNumber);
+    }
+    
     activeScoreBoard(){
         $(this.class).removeAttr('disabled');
     }

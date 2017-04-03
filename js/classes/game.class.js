@@ -81,7 +81,9 @@ class Game extends Base {
             $('#roll').attr("disabled", true); 
         }
         this.dices.rollDice();
-
+        
+        this.users[this.currentUserPlaying].getDices(this.dices);
+        
         if(this.counter == 0){
             this.users[this.currentUserPlaying].setScore((b1)=>{
                 if(b1){
