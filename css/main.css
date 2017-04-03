@@ -1,7 +1,12 @@
+body{
+  background-color: #158270;
+}
+
 .table {
   width: 100px;
   max-height: 550px;
   padding: 0;
+
 }
 
 .scoreboardRad {
@@ -10,8 +15,9 @@
 }
 
 tr{
-  border: solid black 2px;
+  border: solid white 2px;
   text-align:center;
+  background-color: #0C4D42;
 }
 
 td{
@@ -21,8 +27,59 @@ td{
   margin: 0 !important;
 }
 
+a{
+  font-family: 'Baloo Chettan', cursive;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+.navbar {
+  border-radius: 0;
+  border-width: 3px;
+  border-style: solid;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: white;
+  background-color: #158270;
+  padding-bottom: 15px;
+  margin-left: 0;
+}
+
+.navbar-text {
+  margin: 0;
+}
+
+.navbarFluid{
+  padding-left: 0;
+}
+
+.navbar-collapse{
+  padding-left: 0;
+}
+
+.addUserButton{
+  margin-left: 70px;
+
+}
+
+.fa-smile-o{
+  color: blue;
+}
+
+.glyphicons{
+  height: 30px;
+}
+
+h1{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 64px;
+  margin: 0;
+  margin-top: 14px;
+}
+
 .form-control{
-  border-color: black;
+  border-color: white;
   width: 70px;
   border-radius: 0;
   border-bottom: hidden;
@@ -47,6 +104,7 @@ td{
   padding-right: 0 !important;
   padding-left: 0;
   width: 100px;
+
 }
 
 .userScoreboard{
