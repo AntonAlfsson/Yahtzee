@@ -82,7 +82,7 @@ class Game extends Base {
         }
         this.dices.rollDice();
         
-        this.users[this.currentUserPlaying].getDices(this.dices);
+        this.users[this.currentUserPlaying].getDices(this.dices); // skickar diceList till currentUserPlaying
         
         if(this.counter == 0){
             this.users[this.currentUserPlaying].setScore((b1)=>{
