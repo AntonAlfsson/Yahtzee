@@ -12,6 +12,7 @@ class Game extends Base {
     createUsers(){ 
         $('#addUser').html('');
         this.users.createUsers((user) => {
+            console.log('hej', user);
             setTimeout(function(){
                 this.users = user;
                 console.log(this.users);

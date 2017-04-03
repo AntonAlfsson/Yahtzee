@@ -35,6 +35,8 @@ class UserList extends List {
             }else{
                 callback && typeof callback == 'function' && callback(this);
             }
+        }else{
+            callback && typeof callback == 'function' && callback(this);
         }
 
     }
