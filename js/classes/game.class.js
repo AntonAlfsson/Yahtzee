@@ -81,11 +81,15 @@ class Game extends Base {
             $('#roll').attr("disabled", true); 
         }
         this.dices.rollDice();
-
+        
+        this.users[this.currentUserPlaying].getDices(this.dices); // skickar diceList till currentUserPlaying
+        
         if(this.counter == 0){
             this.users[this.currentUserPlaying].setScore((b1)=>{
+                console.log(b1);
                 if(b1){
-                    alert('Game done!');
+                    this.gameDone();
+                    
                 }else{
                     this.counter = 0;
                     this.dices.resetRoll();
