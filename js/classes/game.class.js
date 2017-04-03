@@ -12,10 +12,8 @@ class Game extends Base {
     createUsers(){ 
         $('#addUser').html('');
         this.users.createUsers((user) => {
-            console.log('hej', user);
             setTimeout(function(){
                 this.users = user;
-                console.log(this.users);
 
                 this.users.display('#addUser');
             }, 50);
@@ -29,7 +27,7 @@ class Game extends Base {
         $('#user').attr("disabled", true); // det ska inte gå att lägga till users när spelet har börjat
         this.users[this.currentUserPlaying].activeScoreBoard(); // aktiverar första spelarens scoreboard
 
-        if(this.counter == 3){
+        if(this.counter == 2){
             // set button "Roll" to inactive
             $('#roll').attr("disabled", true); 
         }
