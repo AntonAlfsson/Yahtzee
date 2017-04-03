@@ -120,7 +120,7 @@ class User extends Base {
 
             $(this.class).on('click', function(event){//Skapar event on click
                 var el = '#' + event.target.id; //tar emot det som har klickats
-                if($(el).attr('placeholder') != undefined){ // kontrollerar att det ej är undefined
+                if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
                     $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
                     $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
                     $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
@@ -142,7 +142,7 @@ class User extends Base {
             
             $(this.class).on('click', function(event){ // skapar ett event on click
                 var el = '#' + event.target.id; // tar emot det som klickats
-                if($(el).attr('placeholder') != undefined){ // kontrollerar att det ej är undefined
+                if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
                     $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
                     $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
                     $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
