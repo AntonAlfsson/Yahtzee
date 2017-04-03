@@ -19,13 +19,13 @@ class User extends Base {
             this.scoreList.push('');
         }
     }
-    
+
     getDices(dices){
         var diceNumber = [dices[0].currentNumber, dices[1].currentNumber, dices[2].currentNumber, dices[3].currentNumber, dices[4].currentNumber];
         // nu har vi diceNumber med alla nr från seaste kastet att skicka vidare in i metoder
-        console.log('kast: ', diceNumber);
+        this.checkForYatzy(diceNumber); // skickar dices till metoden som kontrollerar om det är yatzy
     }
-    
+
     activeScoreBoard(){
         $(this.class).removeAttr('disabled');
     }
@@ -43,6 +43,7 @@ class User extends Base {
 
     setTotalScore(callback){  
         $(this.class).attr({'disabled': 'disabled'});
+        $(this.class).removeAttr('placeholder');
         $(this.class).off();
         var tot = 0;
 
@@ -56,7 +57,7 @@ class User extends Base {
 
         $(this.id+17).val(tot);
         this.setBonusHalfScore();  
-        
+
         var b1 = true;
         for(let i = 0; i < 17; i++){
             if(this.scoreList[i] == ""){
@@ -64,8 +65,8 @@ class User extends Base {
             }
         }
         return callback(b1);
-        
-        
+
+
     }
 
     setBonusHalfScore(){
@@ -84,4 +85,43 @@ class User extends Base {
             $(this.id+7).val(0);
         }
     }
+
+    checkForYatzy(diceList){ // tar emot lista med nr från tärningar
+        var yatzy = true;
+        for(let i = 1; i < 5; i++){
+            if(diceList[0] != diceList[i]){
+                yatzy = false;
+            }
+        }
+
+        if(yatzy){
+            $(this.id+16).attr("placeholder", "50"); // sätter placeholder till 50
+            
+            $(this.class).on('click', function(event){ // skapar ett event on click
+                var el = '#' + event.target.id; // tar emot det som klickats
+                if($(el).attr('placeholder') != undefined){ // kontrollerar att det ej är undefined
+                    $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
+                    $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
+                    $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
+                } 
+            });
+        }
+    }
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
