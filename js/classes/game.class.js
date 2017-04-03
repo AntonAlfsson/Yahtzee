@@ -48,7 +48,6 @@ class Game extends Base {
 
                 this.users.display('#addUser');
 
-                //thisGame.saveGameRoundToDB();
             }, 50);
         });
 
