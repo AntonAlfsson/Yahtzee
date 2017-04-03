@@ -20,6 +20,12 @@ class User extends Base {
         }
     }
     
+    getDices(dices){
+        var diceNumber = [dices[0].currentNumber, dices[1].currentNumber, dices[2].currentNumber, dices[3].currentNumber, dices[4].currentNumber];
+        // nu har vi diceNumber med alla nr från seaste kastet att skicka vidare in i metoder
+        console.log('kast: ', diceNumber);
+    }
+    
     activeScoreBoard(){
         $(this.class).removeAttr('disabled');
     }
@@ -29,12 +35,13 @@ class User extends Base {
         var el = this; // sparar this i el eftersom vi förlorar this scopet i nästa function
         //Om något skrivs i input-fältet, returnera false
         $(this.class).on('change', function(){
-            el.setTotalScore();
-            callback(false);
+            el.setTotalScore((b1)=>{
+                callback(b1);
+            });
         });
     }
 
-    setTotalScore(){  
+    setTotalScore(callback){  
         $(this.class).attr({'disabled': 'disabled'});
         $(this.class).off();
         var tot = 0;
@@ -49,6 +56,16 @@ class User extends Base {
 
         $(this.id+17).val(tot);
         this.setBonusHalfScore();  
+        
+        var b1 = true;
+        for(let i = 0; i < 17; i++){
+            if(this.scoreList[i] == ""){
+                b1 = false;
+            }
+        }
+        return callback(b1);
+        
+        
     }
 
     setBonusHalfScore(){

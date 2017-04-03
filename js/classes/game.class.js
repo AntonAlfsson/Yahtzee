@@ -7,6 +7,7 @@ class Game extends Base {
         this.dices = new DiceList(); // skapar dicelist
         this.counter = 0;
         this.currentUserPlaying = 0;
+        this.numberOfUsersDone = 0;
         this.idGame; //Undefined here, will be defined in startGame()
         this.startGame();
     }
@@ -81,11 +82,24 @@ class Game extends Base {
             $('#roll').attr("disabled", true); 
         }
         this.dices.rollDice();
-
+        
+        this.users[this.currentUserPlaying].getDices(this.dices); // skickar diceList till currentUserPlaying
+        
         if(this.counter == 0){
             this.users[this.currentUserPlaying].setScore((b1)=>{
                 if(b1){
-                    alert('Game done!');
+                    this.counter = 0;
+                    this.dices.resetRoll();
+                    $('#roll').attr("disabled", false);
+
+                    if(this.currentUserPlaying == this.users.length-1){
+                        this.currentUserPlaying = 0;
+                    }else{
+                        this.currentUserPlaying++;
+                    }
+                    
+                    this.gameDone();
+                    
                 }else{
                     this.counter = 0;
                     this.dices.resetRoll();
@@ -100,6 +114,16 @@ class Game extends Base {
             });
         }
         this.counter++;
+    }
+    
+    gameDone(){
+        this.numberOfUsersDone++;
+        console.log(this.numberOfUsersDone);
+        console.log(this.users.length);
+        if(this.numberOfUsersDone == this.users.length){
+            
+            alert('Game Done!');
+        }
     }
 
 
