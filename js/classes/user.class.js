@@ -24,6 +24,8 @@ class User extends Base {
         var diceNumber = [dices[0].currentNumber, dices[1].currentNumber, dices[2].currentNumber, dices[3].currentNumber, dices[4].currentNumber];
         // nu har vi diceNumber med alla nr från seaste kastet att skicka vidare in i metoder
         console.log('kast: ', diceNumber);
+
+        this.checkFor123456(diceNumber);
     }
     
     activeScoreBoard(){
@@ -84,4 +86,45 @@ class User extends Base {
             $(this.id+7).val(0);
         }
     }
+
+    checkFor123456(diceNumber){
+        console.log(diceNumber);
+
+        var one = 0;
+        var two = 0;
+        var three = 0;
+        var four = 0;
+        var five = 0;
+        var six = 0;
+
+        for (let i = 0; i < diceNumber.length; i++){
+            if (diceNumber[i]===1)
+                one++;
+            else if (diceNumber[i]===2)
+                two=two+2;
+            else if (diceNumber[i]===3)
+                three=three+3;
+            else if (diceNumber[i]===4)
+                four=four+4;
+            else if (diceNumber[i]===5)
+                five=five+5;
+            else if (diceNumber[i]===6)
+                six=six+6;
+        }
+
+        console.log('Summa 1: ', one, 'Summa 2: ', two, 'Summa 3: ', three, 'Summa 4: ', four, 'Summa 5: ', five, 'Summa 6: ', six);
+
+        //Skriv ut om inte är noll
+        
+
+        //Vänta på klick
+
+
+
+
+
+    }
+
+
+
 }
