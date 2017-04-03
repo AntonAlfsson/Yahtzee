@@ -6,7 +6,7 @@ class Game extends Base {
         this.users = new UserList(); // skapar en userList
         this.dices = new DiceList(); // skapar dicelist
         this.counter = 0;
-        this.numberOfUsers = 0;
+        this.currentUserPlaying = 0;
     }
 
     createUsers(){ 
@@ -26,7 +26,7 @@ class Game extends Base {
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
 
         $('#user').attr("disabled", true); // det ska inte gå att lägga till users när spelet har börjat
-        this.users[this.numberOfUsers].activeScoreBoard(); // aktiverar första spelarens scoreboard
+        this.users[this.currentUserPlaying].activeScoreBoard(); // aktiverar första spelarens scoreboard
 
         if(this.counter == 3){
             // set button "Roll" to inactive
@@ -35,7 +35,7 @@ class Game extends Base {
         this.dices.rollDice();
 
         if(this.counter == 0){
-            this.users[this.numberOfUsers].setScore((b1)=>{
+            this.users[this.currentUserPlaying].setScore((b1)=>{
                 if(b1){
                     alert('Game done!');
                 }else{
@@ -43,10 +43,10 @@ class Game extends Base {
                     this.dices.resetRoll();
                     $('#roll').attr("disabled", false);
 
-                    if(this.numberOfUsers == this.users.length-1){
-                        this.numberOfUsers = 0;
+                    if(this.currentUserPlaying == this.users.length-1){
+                        this.currentUserPlaying = 0;
                     }else{
-                        this.numberOfUsers++;
+                        this.currentUserPlaying++;
                     }
                 }
             });
