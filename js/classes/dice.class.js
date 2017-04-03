@@ -14,7 +14,8 @@ class Dice extends Base {
     }
 
     generateRandomNumber(){
-        this.currentNumber = Math.floor(Math.random() * 6 + 1); // genererar ett numer mellan 1 - 6
+        //this.currentNumber = Math.floor(Math.random() * 6 + 1); // genererar ett numer mellan 1 - 6
+        this.currentNumber = 1;
         var el = '#'+ this.diceId; // sparar dice id i el tillsammans med # för att söka efter
         switch(this.currentNumber){
             case 1:
