@@ -88,8 +88,6 @@ class User extends Base {
     }
 
     checkFor123456(diceNumber){
-        console.log(diceNumber);
-
         var one = 0;
         var two = 0;
         var three = 0;
@@ -97,7 +95,7 @@ class User extends Base {
         var five = 0;
         var six = 0;
 
-        for (let i = 0; i < diceNumber.length; i++){
+        for (let i = 0; i < diceNumber.length; i++){ //Loopar tärningarna och räknar summa av varje siffra
             if (diceNumber[i]===1)
                 one++;
             else if (diceNumber[i]===2)
@@ -112,20 +110,23 @@ class User extends Base {
                 six=six+6;
         }
 
-        console.log('Summa 1: ', one, 'Summa 2: ', two, 'Summa 3: ', three, 'Summa 4: ', four, 'Summa 5: ', five, 'Summa 6: ', six);
-
-        //Skriv ut om inte är noll
+            $(this.id+0).attr("placeholder", one); //Sätter placeholder till ones värde      
+            $(this.id+1).attr("placeholder", two); //Sätter placeholder till twos värde
+            $(this.id+2).attr("placeholder", three); //Sätter placeholder till threes värde
+            $(this.id+3).attr("placeholder", four); //Sätter placeholder till fours värde
+            $(this.id+4).attr("placeholder", five); //Sätter placeholder till fives värde
+            $(this.id+5).attr("placeholder", six); //Sätter placeholder till six värde
         
 
-        //Vänta på klick
-
-
-
-
-
+            $(this.class).on('click', function(event){//Skapar event on click
+                var el = '#' + event.target.id; //tar emot det som har klickats
+                if($(el).attr('placeholder') != undefined){ // kontrollerar att det ej är undefined
+                    $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
+                    $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
+                    $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
+                }
+            });
     }
-
-
 
 
     checkForYatzy(diceList){ // tar emot lista med nr från tärningar
