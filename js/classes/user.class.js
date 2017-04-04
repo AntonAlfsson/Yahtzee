@@ -23,6 +23,16 @@ class User extends Base {
     getDices(dices){
         var diceNumber = [dices[0].currentNumber, dices[1].currentNumber, dices[2].currentNumber, dices[3].currentNumber, dices[4].currentNumber];
         // nu har vi diceNumber med alla nr från seaste kastet att skicka vidare in i metoder
+
+        $(this.class).on('click', function(event){ // skapar ett event on click
+            var el = '#' + event.target.id; // tar emot det som klickats
+            if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
+                $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
+                $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
+                $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
+            } 
+        });
+
         this.checkForYatzy(diceNumber); // skickar dices till metoden som kontrollerar om det är yatzy
         this.checkFor123456(diceNumber);
     }
@@ -116,16 +126,6 @@ class User extends Base {
         $(this.id+3).attr("placeholder", four); //Sätter placeholder till fours värde
         $(this.id+4).attr("placeholder", five); //Sätter placeholder till fives värde
         $(this.id+5).attr("placeholder", six); //Sätter placeholder till six värde
-
-
-        $(this.class).on('click', function(event){//Skapar event on click
-            var el = '#' + event.target.id; //tar emot det som har klickats
-            if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
-                $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
-                $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
-                $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
-            }
-        });
     }
 
 
@@ -139,26 +139,8 @@ class User extends Base {
 
         if(yatzy){
             $(this.id+16).attr("placeholder", "50"); // sätter placeholder till 50
-
-            $(this.class).on('click', function(event){ // skapar ett event on click
-                var el = '#' + event.target.id; // tar emot det som klickats
-                if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
-                    $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
-                    $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
-                    $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
-                } 
-            });
         }else{
             $(this.id+16).attr("placeholder", "-"); // sätter placeholder till -
-
-            $(this.class).on('click', function(event){ // skapar ett event on click
-                var el = '#' + event.target.id; // tar emot det som klickats
-                if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
-                    $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
-                    $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
-                    $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
-                } 
-            });
 
         }
     }
