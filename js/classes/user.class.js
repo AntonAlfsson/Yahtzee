@@ -202,18 +202,26 @@ class User extends Base {
 
     }
 
-checkForSmallStraight(diceNumber){
+    checkForSmallStraight(diceNumber){
 
-    var smallStraightList = [1, 2, 3, 4, 5];//Definierar hur en small straight ser ut
+        var smallStraightList = [1, 2, 3, 4, 5];//Definierar hur en small straight ser ut
 
-    diceNumber.sort(function(a, b){return a - b});//Sorterar tärningarna i nummerordning
+        diceNumber.sort(function(a, b){return a - b});//Sorterar tärningarna i nummerordning
 
-    
-    console.log('sorterad diceList', diceNumber);
+        var match = true;
 
+        for (var i = 0; i < diceNumber.length; i++){ //Loopar genom båda arrayerna 
+            if (diceNumber[i] !== smallStraightList[i]){
+                match = false;
+            }          
+        }
+        if (match){
+                $(this.id+13).attr("placeholder", 15);//Sätter placeholder till small straights värde
+            }else{ 
+        $(this.id+13).attr('placeholder', '-'); //Skriver ut "-"
+      } 
 
-}
-
+    }
 
 
 
