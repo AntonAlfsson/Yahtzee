@@ -39,6 +39,7 @@ class User extends Base {
         this.checkForFyrtal(diceNumber);
         this.checkForTretal(diceNumber);
         this.checkForSmallStraight(diceNumber);
+        this.checkForChance(diceNumber);
     }
 
     activeScoreBoard(){
@@ -312,7 +313,18 @@ class User extends Base {
 
     }
 
+    checkForChance(diceNumber){
 
+        var diceNumberSum = 0;
+
+        for(let i = 0; i < diceNumber.length; i++){
+            diceNumberSum+=diceNumber[i]; //Summerar totalen av tärningarna
+        }
+
+        console.log(diceNumberSum);
+
+        $(this.id+15).attr("placeholder", diceNumberSum);//Sätter placeholder till summan av tärningarna
+    }
 
     checkForYatzy(diceList){ // tar emot lista med nr från tärningar
         var yatzy = true;
