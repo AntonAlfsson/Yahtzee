@@ -128,8 +128,6 @@ class User extends Base {
                 six=six+6;
         }
 
-        console.log(one, two, three, four, five, six);
-
         if(one == 0){
             $(this.id+0).attr("placeholder", '-');
         }else{
