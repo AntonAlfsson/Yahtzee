@@ -36,6 +36,7 @@ class User extends Base {
         this.checkForYatzy(diceNumber); // skickar dices till metoden som kontrollerar om det är yatzy
         this.checkFor123456(diceNumber);
         this.checkFor1par(diceNumber);
+        this.checkFor2par(diceNumber);
         this.checkForFyrtal(diceNumber);
         this.checkForTretal(diceNumber);
     }
@@ -181,6 +182,90 @@ class User extends Base {
         else{
             $(this.id+8).attr('placeholder', '-');
         }
+    }
+
+    checkFor2par(diceList){
+      var one = 0;
+      var two = 0;
+      var three = 0;
+      var four = 0;
+      var five = 0;
+      var six = 0;
+      var twoPair = 0;
+
+      console.log(twoPair);
+
+      var diceList = [1,1,3,4,4];
+      for(let i = 0; i < diceList.length; i++){
+          if(diceList[i] === 1){
+            one++;
+          }
+          else if(diceList[i] === 2){
+            two += 2;
+          }
+          else if(diceList[i] === 3){
+            three += 3;
+          }
+          else if(diceList[i] === 4){
+            four += 4;
+          }
+          else if(diceList[i] === 5){
+            five += 5;
+          }
+          else{
+            six += 6;
+          }
+
+      }
+
+      if(one >= 2){
+          twoPair += 2;
+          if(twoPair > one){
+            $(this.id+9).attr('placeholder', twoPair);
+            console.log('Ettorna:', twoPair);
+          }
+      }
+      if(two >= 4){
+          twoPair += 4;
+          if(twoPair > two){
+            $(this.id+9).attr('placeholder', twoPair);
+            console.log('Tvåorna:', twoPair);
+          }
+      }
+      if(three >= 6){
+          twoPair += 6;
+          if(twoPair > three){
+            $(this.id+9).attr('placeholder', twoPair);
+            console.log('Treorna:', twoPair);
+          }
+      }
+      if(four >= 8){
+          twoPair += 8;
+          if(twoPair > four){
+            $(this.id+9).attr('placeholder', twoPair);
+            console.log('Fyrorna:', twoPair);
+          }
+      }
+      if(five >= 10){
+          twoPair += 10;
+          if(twoPair > five){
+            $(this.id+9).attr('placeholder', twoPair);
+            console.log('Femorna:', twoPair);
+          }
+      }
+      if(six >= 12){
+          twoPair += 12;
+          if(twoPair > six){
+            $(this.id+9).attr('placeholder', twoPair);
+            console.log('Sexorna:', twoPair);
+          }
+      }
+      else{
+          $(this.id+9).attr('placeholder', '-');
+      }
+
+      console.log(twoPair);
+
     }
 
     checkForTretal(diceList){
