@@ -27,7 +27,8 @@ class Game extends Base {
             this.idGame = tempIdGame+1;
 
             //Lägger till nytt game i databasen
-            this.db.newGame({idGame: this.idGame}, (data)=>{
+            this.db.newGame({idGame: this.idGame}, ()=>{
+                
             });
 
         });

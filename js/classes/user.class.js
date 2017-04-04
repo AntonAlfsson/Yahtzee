@@ -21,7 +21,6 @@ class User extends Base {
     }
 
     getDices(dices){
-        $(this.class).removeAttr('placeholder');
 
         var diceNumber = [dices[0].currentNumber, dices[1].currentNumber, dices[2].currentNumber, dices[3].currentNumber, dices[4].currentNumber];
         // nu har vi diceNumber med alla nr från seaste kastet att skicka vidare in i metoder
@@ -62,6 +61,9 @@ class User extends Base {
     }
 
     setTotalScore(callback){
+        
+        $(this.class).removeAttr('placeholder'); // tar bort alla placeholders
+
         $(this.class).attr({'disabled': 'disabled'});
         $(this.class).off();
         var tot = 0;
