@@ -38,6 +38,7 @@ class User extends Base {
         this.checkFor1par(diceNumber);
         this.checkForFyrtal(diceNumber);
         this.checkForTretal(diceNumber);
+        this.checkForSmallStraight(diceNumber);
     }
 
     activeScoreBoard(){
@@ -291,6 +292,28 @@ class User extends Base {
 
     }
 
+    checkForSmallStraight(diceNumber){
+        var smallStraightList = [1, 2, 3, 4, 5];//Definierar hur en small straight ser ut
+
+        diceNumber.sort(function(a, b){return a - b});//Sorterar tärningarna i nummerordning
+
+        var match = true;
+
+        for (var i = 0; i < diceNumber.length; i++){ //Loopar genom båda arrayerna 
+            if (diceNumber[i] !== smallStraightList[i]){
+                match = false;
+            }          
+        }
+        if (match){
+            $(this.id+13).attr("placeholder", 15);//Sätter placeholder till small straights värde
+        }else{ 
+            $(this.id+13).attr('placeholder', '-'); //Skriver ut "-"
+        } 
+
+    }
+
+
+
     checkForYatzy(diceList){ // tar emot lista med nr från tärningar
         var yatzy = true;
         for(let i = 1; i < 5; i++){
@@ -303,8 +326,6 @@ class User extends Base {
             $(this.id+16).attr("placeholder", "50"); // sätter placeholder till 50
         }else{
             $(this.id+16).attr("placeholder", "-"); // sätter placeholder till -
-
         }
     }
-
 }
