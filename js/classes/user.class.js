@@ -37,6 +37,7 @@ class User extends Base {
         this.checkForYatzy(diceNumber); // skickar dices till metoden som kontrollerar om det är yatzy
         this.checkFor123456(diceNumber);
         this.checkFor1par(diceNumber);
+        this.checkFor2par(diceNumber);
         this.checkForFyrtal(diceNumber);
         this.checkForTretal(diceNumber);
         this.checkForSmallStraight(diceNumber);
@@ -220,6 +221,71 @@ class User extends Base {
         else{
             $(this.id+8).attr('placeholder', '-');
         }
+    }
+
+    checkFor2par(diceList){
+      var one = 0;
+      var two = 0;
+      var three = 0;
+      var four = 0;
+      var five = 0;
+      var six = 0;
+      var counter = 0;
+      var sum = 0;
+
+      for(let i = 0; i < diceList.length; i++){
+          if(diceList[i] === 1){
+            one++;
+          }
+          else if(diceList[i] === 2){
+            two+=2;
+          }
+          else if(diceList[i] === 3){
+            three+=3;
+          }
+          else if(diceList[i] === 4){
+            four+=4;
+          }
+          else if(diceList[i] === 5){
+            five+=5;
+          }
+          else{
+            six+=6;
+          }
+      }
+
+      if(one >= 2){
+        counter++;
+        sum+=one;
+      }
+      if(two >= 4){
+        counter++;
+        sum+=two;
+      }
+      if(three >= 6){
+        counter++;
+        sum+=three;
+      }
+      if(four >= 8){
+        counter++;
+        sum+=four;
+      }
+      if(five >= 10){
+        counter++;
+        sum+=five;
+      }
+      if(six >= 12){
+        counter++;
+        sum+=six;
+      }
+
+      if(counter >= 2){
+        $(this.id+9).attr('placeholder', sum);
+      }
+      else{
+        $(this.id+9).attr('placeholder', '-');
+      }
+
     }
 
     checkForTretal(diceList){
