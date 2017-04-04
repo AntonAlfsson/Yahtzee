@@ -22,14 +22,12 @@ class Game extends Base {
         //Hämtar högsta idGame från databasen
         this.db.getGame((data)=>{
             tempIdGame = data[0].maxGame;
-            console.log('Hämtar högsta idGame från db', data);
 
             //Plussar på 
             this.idGame = tempIdGame+1;
 
             //Lägger till nytt game i databasen
             this.db.newGame({idGame: this.idGame}, (data)=>{
-                console.log('Lägger till nytt game i db', data);
             });
 
         });
