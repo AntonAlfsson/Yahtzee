@@ -51,7 +51,7 @@ class User extends Base {
         for(let i = 0; i < 17; i++){
             this.scoreList[i] = $(this.id+i).val();
 
-            if($(this.id+i).val() != "" && this.id+i != this.id+6){
+            if($(this.id+i).val() != "" && $(this.id+i).val() != "-" && this.id+i != this.id+6){
                 tot += parseInt($(this.id+i).val());
             }
         }
@@ -75,7 +75,7 @@ class User extends Base {
         var bonus = 0;
 
         for(let i = 0; i < 6; i++){
-            if($(this.id+i).val() != ""){
+            if($(this.id+i).val() != "" && $(this.id+i).val() != "-"){
                 bonus += parseInt($(this.id+i).val());
             }
         }
@@ -110,22 +110,22 @@ class User extends Base {
                 six=six+6;
         }
 
-            $(this.id+0).attr("placeholder", one); //Sätter placeholder till ones värde      
-            $(this.id+1).attr("placeholder", two); //Sätter placeholder till twos värde
-            $(this.id+2).attr("placeholder", three); //Sätter placeholder till threes värde
-            $(this.id+3).attr("placeholder", four); //Sätter placeholder till fours värde
-            $(this.id+4).attr("placeholder", five); //Sätter placeholder till fives värde
-            $(this.id+5).attr("placeholder", six); //Sätter placeholder till six värde
-        
+        $(this.id+0).attr("placeholder", one); //Sätter placeholder till ones värde      
+        $(this.id+1).attr("placeholder", two); //Sätter placeholder till twos värde
+        $(this.id+2).attr("placeholder", three); //Sätter placeholder till threes värde
+        $(this.id+3).attr("placeholder", four); //Sätter placeholder till fours värde
+        $(this.id+4).attr("placeholder", five); //Sätter placeholder till fives värde
+        $(this.id+5).attr("placeholder", six); //Sätter placeholder till six värde
 
-            $(this.class).on('click', function(event){//Skapar event on click
-                var el = '#' + event.target.id; //tar emot det som har klickats
-                if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
-                    $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
-                    $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
-                    $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
-                }
-            });
+
+        $(this.class).on('click', function(event){//Skapar event on click
+            var el = '#' + event.target.id; //tar emot det som har klickats
+            if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
+                $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
+                $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
+                $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
+            }
+        });
     }
 
 
@@ -139,7 +139,7 @@ class User extends Base {
 
         if(yatzy){
             $(this.id+16).attr("placeholder", "50"); // sätter placeholder till 50
-            
+
             $(this.class).on('click', function(event){ // skapar ett event on click
                 var el = '#' + event.target.id; // tar emot det som klickats
                 if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
@@ -148,6 +148,18 @@ class User extends Base {
                     $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
                 } 
             });
+        }else{
+            $(this.id+16).attr("placeholder", "-"); // sätter placeholder till -
+
+            $(this.class).on('click', function(event){ // skapar ett event on click
+                var el = '#' + event.target.id; // tar emot det som klickats
+                if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
+                    $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
+                    $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
+                    $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
+                } 
+            });
+
         }
     }
 
