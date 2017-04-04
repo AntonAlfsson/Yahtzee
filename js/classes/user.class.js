@@ -42,6 +42,7 @@ class User extends Base {
         this.checkForTretal(diceNumber);
         this.checkForSmallStraight(diceNumber);
         this.checkForHouse(diceNumber);
+        this.checkForLargeStraight(diceNumber);
     }
 
     activeScoreBoard(){
@@ -396,6 +397,26 @@ class User extends Base {
             $(this.id+13).attr("placeholder", 15);//Sätter placeholder till small straights värde
         }else{ 
             $(this.id+13).attr('placeholder', '-'); //Skriver ut "-"
+        } 
+
+    }
+
+    checkForLargeStraight(diceNumber){
+        var largeStraightList = [2, 3, 4, 5, 6];//Definierar hur en large straight ser ut
+
+        diceNumber.sort(function(a, b){return a - b});//Sorterar tärningarna i nummerordning
+
+        var match = true;
+
+        for (var i = 0; i < diceNumber.length; i++){ //Loopar genom båda arrayerna 
+            if (diceNumber[i] !== largeStraightList[i]){
+                match = false;
+            }          
+        }
+        if (match){
+            $(this.id+14).attr("placeholder", 20);//Sätter placeholder till small straights värde
+        }else{ 
+            $(this.id+14).attr('placeholder', '-'); //Skriver ut "-"
         } 
 
     }
