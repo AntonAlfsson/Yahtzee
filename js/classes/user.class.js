@@ -25,6 +25,7 @@ class User extends Base {
         // nu har vi diceNumber med alla nr från seaste kastet att skicka vidare in i metoder
         this.checkForYatzy(diceNumber); // skickar dices till metoden som kontrollerar om det är yatzy
         this.checkFor123456(diceNumber);
+        this.checkForFyrtal(diceNumber);
     }
 
     activeScoreBoard(){
@@ -42,7 +43,7 @@ class User extends Base {
         });
     }
 
-    setTotalScore(callback){  
+    setTotalScore(callback){
         $(this.class).attr({'disabled': 'disabled'});
         $(this.class).removeAttr('placeholder');
         $(this.class).off();
@@ -57,7 +58,7 @@ class User extends Base {
         }
 
         $(this.id+17).val(tot);
-        this.setBonusHalfScore();  
+        this.setBonusHalfScore();
 
         var b1 = true;
         for(let i = 0; i < 17; i++){
@@ -110,13 +111,13 @@ class User extends Base {
                 six=six+6;
         }
 
-            $(this.id+0).attr("placeholder", one); //Sätter placeholder till ones värde      
+            $(this.id+0).attr("placeholder", one); //Sätter placeholder till ones värde
             $(this.id+1).attr("placeholder", two); //Sätter placeholder till twos värde
             $(this.id+2).attr("placeholder", three); //Sätter placeholder till threes värde
             $(this.id+3).attr("placeholder", four); //Sätter placeholder till fours värde
             $(this.id+4).attr("placeholder", five); //Sätter placeholder till fives värde
             $(this.id+5).attr("placeholder", six); //Sätter placeholder till six värde
-        
+
 
             $(this.class).on('click', function(event){//Skapar event on click
                 var el = '#' + event.target.id; //tar emot det som har klickats
@@ -139,16 +140,71 @@ class User extends Base {
 
         if(yatzy){
             $(this.id+16).attr("placeholder", "50"); // sätter placeholder till 50
-            
+
             $(this.class).on('click', function(event){ // skapar ett event on click
                 var el = '#' + event.target.id; // tar emot det som klickats
                 if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
                     $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
                     $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
                     $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
-                } 
+                }
             });
         }
+    }
+
+    checkForFyrtal(diceList){
+
+      var one = 0;
+      var two = 0;
+      var three = 0;
+      var four = 0;
+      var five = 0;
+      var six = 0;
+
+      for(let i = 0; i < diceList.length; i++){
+        if(diceList[i] === 1){
+          one++;
+        }
+        else if(diceList[i] === 2){
+          two += 2;
+        }
+        else if(diceList[i] === 3){
+          three += 3;
+        }
+        else if(diceList[i] === 4){
+          four += 4;
+        }
+        else if(diceList[i] === 5){
+          five += 5;
+        }
+        else{
+          six += 6;
+        }
+      }
+
+      if(one >= 4){
+        console.log(one);
+        $(this.id+11).attr('placeholder', '4');
+      }
+      else if(two >= 8){
+        $(this.id+11).attr('placeholder', '8');
+      }
+      else if(three >= 12){
+        $(this.id+11).attr('placeholder', '12');
+      }
+      else if(four >= 16){
+        $(this.id+11).attr('placeholder', '16');
+      }
+      else if(five >= 20){
+        $(this.id+11).attr('placeholder', '20');
+      }
+      else if(six >= 24){
+        $(this.id+11).attr('placeholder', '24');
+      }
+      else{
+        $(this.id+11).attr('placeholder', '-');
+      }
+
     }
 
 
@@ -157,14 +213,3 @@ class User extends Base {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
