@@ -100,10 +100,13 @@ class User extends Base {
             }
         }
         $(this.id+6).val(bonus);
+        this.scoreList[6] = bonus;
         if(bonus >= 63){
             $(this.id+7).val(50);
+            this.scoreList[7] = 50;
         }else{
             $(this.id+7).val(0);
+            this.scoreList[7] = 0;
         }
     }
 

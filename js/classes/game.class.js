@@ -69,7 +69,7 @@ class Game extends Base {
 
         $('#user').attr("disabled", true); // det ska inte gå att lägga till users när spelet har börjat
         this.users[this.currentUserPlaying].activeScoreBoard(); // aktiverar första spelarens scoreboard
-
+        console.log(this.users[this.currentUserPlaying].scoreList);
         if(this.counter == 2){
             // set button "Roll" to inactive
             $('#roll').attr("disabled", true); 
@@ -118,6 +118,10 @@ class Game extends Base {
             //SpelId och alla användare sparas till DB
             this.saveGameRoundToDB();
         }
+    }
+    
+    gameLoop(){
+        
     }
 
 
