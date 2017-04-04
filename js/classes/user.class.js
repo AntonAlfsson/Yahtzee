@@ -191,80 +191,61 @@ class User extends Base {
       var four = 0;
       var five = 0;
       var six = 0;
-      var twoPair = 0;
+      var counter = 0;
+      var sum = 0;
 
-      console.log(twoPair);
-
-      var diceList = [1,1,3,4,4];
       for(let i = 0; i < diceList.length; i++){
           if(diceList[i] === 1){
             one++;
           }
           else if(diceList[i] === 2){
-            two += 2;
+            two+=2;
           }
           else if(diceList[i] === 3){
-            three += 3;
+            three+=3;
           }
           else if(diceList[i] === 4){
-            four += 4;
+            four+=4;
           }
           else if(diceList[i] === 5){
-            five += 5;
+            five+=5;
           }
           else{
-            six += 6;
+            six+=6;
           }
-
       }
 
       if(one >= 2){
-          twoPair += 2;
-          if(twoPair > one){
-            $(this.id+9).attr('placeholder', twoPair);
-            console.log('Ettorna:', twoPair);
-          }
+        counter++;
+        sum+=one;
       }
       if(two >= 4){
-          twoPair += 4;
-          if(twoPair > two){
-            $(this.id+9).attr('placeholder', twoPair);
-            console.log('Tvåorna:', twoPair);
-          }
+        counter++;
+        sum+=two;
       }
       if(three >= 6){
-          twoPair += 6;
-          if(twoPair > three){
-            $(this.id+9).attr('placeholder', twoPair);
-            console.log('Treorna:', twoPair);
-          }
+        counter++;
+        sum+=three;
       }
       if(four >= 8){
-          twoPair += 8;
-          if(twoPair > four){
-            $(this.id+9).attr('placeholder', twoPair);
-            console.log('Fyrorna:', twoPair);
-          }
+        counter++;
+        sum+=four;
       }
       if(five >= 10){
-          twoPair += 10;
-          if(twoPair > five){
-            $(this.id+9).attr('placeholder', twoPair);
-            console.log('Femorna:', twoPair);
-          }
+        counter++;
+        sum+=five;
       }
       if(six >= 12){
-          twoPair += 12;
-          if(twoPair > six){
-            $(this.id+9).attr('placeholder', twoPair);
-            console.log('Sexorna:', twoPair);
-          }
-      }
-      else{
-          $(this.id+9).attr('placeholder', '-');
+        counter++;
+        sum+=six;
       }
 
-      console.log(twoPair);
+      if(counter >= 2){
+        $(this.id+9).attr('placeholder', sum);
+      }
+      else{
+        $(this.id+9).attr('placeholder', '-');
+      }
 
     }
 
