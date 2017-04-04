@@ -36,6 +36,7 @@ class User extends Base {
         this.checkForYatzy(diceNumber); // skickar dices till metoden som kontrollerar om det är yatzy
         this.checkFor123456(diceNumber);
         this.checkForFyrtal(diceNumber);
+        this.checkForSmallStraight(diceNumber);
     }
 
     activeScoreBoard(){
@@ -201,7 +202,17 @@ class User extends Base {
 
     }
 
+checkForSmallStraight(diceNumber){
 
+    var smallStraightList = [1, 2, 3, 4, 5];//Definierar hur en small straight ser ut
+
+    diceNumber.sort(function(a, b){return a - b});//Sorterar tärningarna i nummerordning
+
+    
+    console.log('sorterad diceList', diceNumber);
+
+
+}
 
 
 
