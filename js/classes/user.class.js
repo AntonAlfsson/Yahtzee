@@ -35,6 +35,7 @@ class User extends Base {
 
         this.checkForYatzy(diceNumber); // skickar dices till metoden som kontrollerar om det är yatzy
         this.checkFor123456(diceNumber);
+        this.checkForFyrtal(diceNumber);
     }
 
     activeScoreBoard(){
@@ -52,7 +53,7 @@ class User extends Base {
         });
     }
 
-    setTotalScore(callback){  
+    setTotalScore(callback){
         $(this.class).attr({'disabled': 'disabled'});
         $(this.class).removeAttr('placeholder');
         $(this.class).off();
@@ -67,7 +68,7 @@ class User extends Base {
         }
 
         $(this.id+17).val(tot);
-        this.setBonusHalfScore();  
+        this.setBonusHalfScore();
 
         var b1 = true;
         for(let i = 0; i < 17; i++){
@@ -145,20 +146,64 @@ class User extends Base {
         }
     }
 
+    checkForFyrtal(diceList){
+
+      var one = 0;
+      var two = 0;
+      var three = 0;
+      var four = 0;
+      var five = 0;
+      var six = 0;
+
+      for(let i = 0; i < diceList.length; i++){
+        if(diceList[i] === 1){
+          one++;
+        }
+        else if(diceList[i] === 2){
+          two += 2;
+        }
+        else if(diceList[i] === 3){
+          three += 3;
+        }
+        else if(diceList[i] === 4){
+          four += 4;
+        }
+        else if(diceList[i] === 5){
+          five += 5;
+        }
+        else{
+          six += 6;
+        }
+      }
+
+      if(one >= 4){
+        console.log(one);
+        $(this.id+11).attr('placeholder', '4');
+      }
+      else if(two >= 8){
+        $(this.id+11).attr('placeholder', '8');
+      }
+      else if(three >= 12){
+        $(this.id+11).attr('placeholder', '12');
+      }
+      else if(four >= 16){
+        $(this.id+11).attr('placeholder', '16');
+      }
+      else if(five >= 20){
+        $(this.id+11).attr('placeholder', '20');
+      }
+      else if(six >= 24){
+        $(this.id+11).attr('placeholder', '24');
+      }
+      else{
+        $(this.id+11).attr('placeholder', '-');
+      }
+
+    }
+
 
 
 
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
