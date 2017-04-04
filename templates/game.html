@@ -1,14 +1,85 @@
 Game.addTemplate('default', function(){return `
 
-<div class="container">
-    <h1>Yahtzee</h1>
+<div class="container gamePage">
 
-    <div class="row buttonRow">
-        <div class="col-xs-2">
-            <button type="button" id="user" class="btn btn-default" data-click="createUsers">Add Users</button>
-            <p id="moreUsers"></p>
-        </div>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid navbarFluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <div class="navbar-text">
+          <h1>Yatzy</h1>
+        </div>
+
+        <li class="addUserButton" id="user" data-click="createUsers"><a href="#">Add user</a><span class="glyphicons glyphicons-parents"></span></li>
+
+
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+
+        </div>
+
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="highscoreButton "><a data-toggle="modal" href="#myModal" data-click="highscoreList">Highscores!</a></li>
+
+
+        <!-- Modal -->
+      <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p class="name0"></p>
+            <p class="name1"></p>
+            <p class="name2"></p>
+            <p class="name3"></p>
+            <p class="name4"></p>
+            <p class="name5"></p>
+            <p class="name6"></p>
+            <p class="name7"></p>
+            <p class="name8"></p>
+            <p class="name9"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
 
     <div class="row scoreboardRad">
         <div class="col-xs-2 gameB">
