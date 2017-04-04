@@ -58,7 +58,7 @@ class Game extends Base {
 
         for (var user of this.users){
             userName = user.userName;
-            this.db.newGameHasUser({Game_idGame: this.idGame, User_username: userName},()=>{
+            this.db.newGameHasUser({Game_idGame: this.idGame, User_username: userName, score: user.scoreList[17]},()=>{
                 console.log('lägger till user i game_has_user', userName);
             });
         }
@@ -113,6 +113,7 @@ class Game extends Base {
         this.numberOfUsersDone++;
         console.log(this.numberOfUsersDone);
         console.log(this.users.length);
+        
         if(this.numberOfUsersDone == this.users.length){
 
             //SpelId och alla användare sparas till DB

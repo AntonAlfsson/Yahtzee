@@ -55,6 +55,7 @@ class User extends Base {
         var el = this; // sparar this i el eftersom vi förlorar this scopet i nästa function
         //Om något skrivs i input-fältet, returnera false
         $(this.class).on('change', function(){
+
             el.setTotalScore((b1)=>{
                 callback(b1);
             });
@@ -62,7 +63,7 @@ class User extends Base {
     }
 
     setTotalScore(callback){
-        
+
         $(this.class).removeAttr('placeholder'); // tar bort alla placeholders
 
         $(this.class).attr({'disabled': 'disabled'});
@@ -78,17 +79,20 @@ class User extends Base {
         }
 
         $(this.id+17).val(tot);
+        this.scoreList[17] = tot;
+
+
         this.setBonusHalfScore();
 
-        var b1 = true;
-        for(let i = 0; i < 17; i++){
-            if(this.scoreList[i] == ""){
-                b1 = false;
+            var b1 = true;
+
+            for(let i = 0; i < 17; i++){
+                if(this.scoreList[i] === ""){
+                    b1 = false;
+                }
             }
-        }
-        return callback(b1);
-
-
+        
+            return callback(b1);
     }
 
     setBonusHalfScore(){
@@ -224,67 +228,67 @@ class User extends Base {
     }
 
     checkFor2par(diceList){
-      var one = 0;
-      var two = 0;
-      var three = 0;
-      var four = 0;
-      var five = 0;
-      var six = 0;
-      var counter = 0;
-      var sum = 0;
+        var one = 0;
+        var two = 0;
+        var three = 0;
+        var four = 0;
+        var five = 0;
+        var six = 0;
+        var counter = 0;
+        var sum = 0;
 
-      for(let i = 0; i < diceList.length; i++){
-          if(diceList[i] === 1){
-            one++;
-          }
-          else if(diceList[i] === 2){
-            two+=2;
-          }
-          else if(diceList[i] === 3){
-            three+=3;
-          }
-          else if(diceList[i] === 4){
-            four+=4;
-          }
-          else if(diceList[i] === 5){
-            five+=5;
-          }
-          else{
-            six+=6;
-          }
-      }
+        for(let i = 0; i < diceList.length; i++){
+            if(diceList[i] === 1){
+                one++;
+            }
+            else if(diceList[i] === 2){
+                two+=2;
+            }
+            else if(diceList[i] === 3){
+                three+=3;
+            }
+            else if(diceList[i] === 4){
+                four+=4;
+            }
+            else if(diceList[i] === 5){
+                five+=5;
+            }
+            else{
+                six+=6;
+            }
+        }
 
-      if(one >= 2){
-        counter++;
-        sum+=one;
-      }
-      if(two >= 4){
-        counter++;
-        sum+=two;
-      }
-      if(three >= 6){
-        counter++;
-        sum+=three;
-      }
-      if(four >= 8){
-        counter++;
-        sum+=four;
-      }
-      if(five >= 10){
-        counter++;
-        sum+=five;
-      }
-      if(six >= 12){
-        counter++;
-        sum+=six;
-      }
+        if(one >= 2){
+            counter++;
+            sum+=one;
+        }
+        if(two >= 4){
+            counter++;
+            sum+=two;
+        }
+        if(three >= 6){
+            counter++;
+            sum+=three;
+        }
+        if(four >= 8){
+            counter++;
+            sum+=four;
+        }
+        if(five >= 10){
+            counter++;
+            sum+=five;
+        }
+        if(six >= 12){
+            counter++;
+            sum+=six;
+        }
 
-      if(counter >= 2){
-        $(this.id+9).attr('placeholder', sum);
-      }
-      else{
-        $(this.id+9).attr('placeholder', '-');
-      }
+        if(counter >= 2){
+            $(this.id+9).attr('placeholder', sum);
+        }
+        else{
+            $(this.id+9).attr('placeholder', '-');
+        }
 
     }
 
@@ -372,7 +376,6 @@ class User extends Base {
         }
 
         if(one >= 4){
-            console.log(one);
             $(this.id+11).attr('placeholder', '4');
         }
         else if(two >= 8){
