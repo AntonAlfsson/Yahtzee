@@ -22,10 +22,10 @@ class User extends Base {
 
     getDices(dices){
         $(this.class).removeAttr('placeholder');
-        
+
         var diceNumber = [dices[0].currentNumber, dices[1].currentNumber, dices[2].currentNumber, dices[3].currentNumber, dices[4].currentNumber];
         // nu har vi diceNumber med alla nr från seaste kastet att skicka vidare in i metoder
-        
+
         $(this.class).on('click', function(event){ // skapar ett event on click
             var el = '#' + event.target.id; // tar emot det som klickats
             if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
@@ -43,6 +43,7 @@ class User extends Base {
         this.checkForSmallStraight(diceNumber);
         this.checkForHouse(diceNumber);
         this.checkForLargeStraight(diceNumber);
+        this.checkForChance(diceNumber);
     }
 
     activeScoreBoard(){
@@ -111,7 +112,7 @@ class User extends Base {
         var four = 0;
         var five = 0;
         var six = 0;
-        
+
         for (let i = 0; i < diceNumber.length; i++){ //Loopar tärningarna och räknar summa av varje siffra
             if (diceNumber[i] === 1)
                 one++;
@@ -126,9 +127,9 @@ class User extends Base {
             else if (diceNumber[i]===6)
                 six=six+6;
         }
-        
+
         console.log(one, two, three, four, five, six);
-        
+
         if(one == 0){
             $(this.id+0).attr("placeholder", '-');
         }else{
@@ -340,7 +341,7 @@ class User extends Base {
 
         //Går igenom diceNumber och ser hur många det finns av varje sort
         for(let i = 0; i < diceNumber.length; i++){
-           if(diceNumber[i] === 1){
+            if(diceNumber[i] === 1){
                 one++;
             }
             else if(diceNumber[i] === 2){
@@ -422,6 +423,15 @@ class User extends Base {
     }
 
 
+    checkForChance(diceNumber){
+        var diceNumberSum = 0;
+
+        for(let i = 0; i < diceNumber.length; i++){
+            diceNumberSum+=diceNumber[i]; //Summerar totalen av tärningarna
+        }
+
+        $(this.id+15).attr("placeholder", diceNumberSum);//Sätter placeholder till summan av tärningarna
+    }
 
     checkForYatzy(diceList){ // tar emot lista med nr från tärningar
         var yatzy = true;
