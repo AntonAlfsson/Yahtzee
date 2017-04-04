@@ -13,7 +13,29 @@ class User extends Base {
 
     }
 
+    saveToDb(gameId){
+        console.log(gameId);
+        console.log(this.userName); 
+        var finalScore = this.scoreList[17];
+        console.log(finalScore);
+        console.log(this.scoreList[17]);
+       
+        this.db.newGameHasScore({Game_idGame: gameId, User_userName:this.userName, score:finalScore}, ()=> {
+            console.log(finalScore);
+        });
+
+
+    }
+
+ 
+
     //Kanske ett sätt att få en lista med 18 tomma platser?
+    getScore(){
+       
+        console.log("hi for userside");
+        
+    }
+
     startScoreList(){
         for (var i = 0; i < 18; i++){
             this.scoreList.push('');
@@ -55,6 +77,7 @@ class User extends Base {
         }
 
         $(this.id+17).val(tot);
+        this.scoreList[17] = tot;
         this.setBonusHalfScore();  
         
         var b1 = true;
@@ -82,6 +105,14 @@ class User extends Base {
             $(this.id+7).val(50);
         }else{
             $(this.id+7).val(0);
+        }
+    }
+
+    static get sqlQueries(){
+        return{
+            newGameHasScore: `
+            INSERT into Game_has_User SET ?
+`
         }
     }
 }

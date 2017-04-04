@@ -3,7 +3,7 @@ class UserList extends List {
     constructor() {
         super(User);
     }
-
+    
     createUsers(callback){
         var name = window.prompt("Username: ","Username"); // frågar efter namn och tar emot det
         if(name != null){ // kontrollerar att man ej tryckt på avbryt

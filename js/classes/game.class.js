@@ -56,16 +56,23 @@ class Game extends Base {
     }
 
     //Sparar data i Game_has_user
+    
+   
     saveGameRoundToDB(){
-        var userName;
+         var userName;
+         
 
         for (var user of this.users){
             userName = user.userName;
-            this.db.newGameHasUser({Game_idGame: this.idGame, User_username: userName},(data)=>{
+            
+            this.db.newGameHasUser({Game_idGame: this.idGame, User_username: userName,},(data)=>{
                 console.log('lägger till user i game_has_user', userName);
+
             });
         }
     }
+
+
 
 
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
@@ -120,10 +127,21 @@ class Game extends Base {
         this.numberOfUsersDone++;
         console.log(this.numberOfUsersDone);
         console.log(this.users.length);
-        if(this.numberOfUsersDone == this.users.length){
+        
+         
             
+            if(this.numberOfUsersDone == this.users.length){
+             for(let i=0; i<this.users.length; i++){
+             console.log(i);   
+            this.users[i].saveToDb(this.idGame); 
+
             alert('Game Done!');
-        }
+
+            
+            }
+         }
+
+        
     }
 
 
@@ -138,7 +156,9 @@ class Game extends Base {
 `,
             newGameHasUser: `
                 INSERT into Game_has_User SET ?
-`
+`,          newGameHasScore: `
+                INSERT into Game_has_User SET ?
+`       
         }
     }
 }
