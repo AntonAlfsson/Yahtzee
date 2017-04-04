@@ -30,11 +30,12 @@ class User extends Base {
                 $(el).val($(el).attr('placeholder')); // hämtar det som står som placeholder och sätter till value
                 $(el).attr({'readonly': 'readonly'}); // sätter fältet till readonly = nu går det ej att ändra
                 $(el).trigger("change"); // triggar eventet change för att trigga event till listenern i metoden setScore
-            } 
+            }
         });
 
         this.checkForYatzy(diceNumber); // skickar dices till metoden som kontrollerar om det är yatzy
         this.checkFor123456(diceNumber);
+        this.checkFor1par(diceNumber);
         this.checkForFyrtal(diceNumber);
     }
 
@@ -121,12 +122,64 @@ class User extends Base {
                 six=six+6;
         }
 
-        $(this.id+0).attr("placeholder", one); //Sätter placeholder till ones värde      
+        $(this.id+0).attr("placeholder", one); //Sätter placeholder till ones värde
         $(this.id+1).attr("placeholder", two); //Sätter placeholder till twos värde
         $(this.id+2).attr("placeholder", three); //Sätter placeholder till threes värde
         $(this.id+3).attr("placeholder", four); //Sätter placeholder till fours värde
         $(this.id+4).attr("placeholder", five); //Sätter placeholder till fives värde
         $(this.id+5).attr("placeholder", six); //Sätter placeholder till six värde
+    }
+
+    checkFor1par(diceList){
+      var one = 0;
+      var two = 0;
+      var three = 0;
+      var four = 0;
+      var five = 0;
+      var six = 0;
+
+      for(let i = 0; i < diceList.length; i++){
+        if(diceList[i] === 1){
+          one++;
+        }
+        else if(diceList[i] === 2){
+          two += 2;
+        }
+        else if(diceList[i] === 3){
+          three += 3;
+        }
+        else if(diceList[i] === 4){
+          four += 4;
+        }
+        else if(diceList[i] === 5){
+          five += 5;
+        }
+        else{
+          six += 6;
+        }
+      }
+
+      if(six >= 12){
+        $(this.id+8).attr('placeholder', '12');
+      }
+      else if(five >= 10){
+        $(this.id+8).attr('placeholder', '10');
+      }
+      else if(four >= 8){
+        $(this.id+8).attr('placeholder', '8');
+      }
+      else if(three >= 6){
+        $(this.id+8).attr('placeholder', '6');
+      }
+      else if(two >= 4){
+        $(this.id+8).attr('placeholder', '4');
+      }
+      else if(one >= 2){
+        $(this.id+8).attr('placeholder', '2');
+      }
+      else{
+        $(this.id+8).attr('placeholder', '-');
+      }
     }
 
     checkForFyrtal(diceList){
@@ -199,6 +252,7 @@ class User extends Base {
 
         }
     }
+
 
 
 
