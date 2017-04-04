@@ -129,6 +129,60 @@ class User extends Base {
         $(this.id+5).attr("placeholder", six); //Sätter placeholder till six värde
     }
 
+    checkForFyrtal(diceList){
+
+        var one = 0;
+        var two = 0;
+        var three = 0;
+        var four = 0;
+        var five = 0;
+        var six = 0;
+
+        for(let i = 0; i < diceList.length; i++){
+            if(diceList[i] === 1){
+                one++;
+            }
+            else if(diceList[i] === 2){
+                two += 2;
+            }
+            else if(diceList[i] === 3){
+                three += 3;
+            }
+            else if(diceList[i] === 4){
+                four += 4;
+            }
+            else if(diceList[i] === 5){
+                five += 5;
+            }
+            else{
+                six += 6;
+            }
+        }
+
+        if(one >= 4){
+            console.log(one);
+            $(this.id+11).attr('placeholder', '4');
+        }
+        else if(two >= 8){
+            $(this.id+11).attr('placeholder', '8');
+        }
+        else if(three >= 12){
+            $(this.id+11).attr('placeholder', '12');
+        }
+        else if(four >= 16){
+            $(this.id+11).attr('placeholder', '16');
+        }
+        else if(five >= 20){
+            $(this.id+11).attr('placeholder', '20');
+        }
+        else if(six >= 24){
+            $(this.id+11).attr('placeholder', '24');
+        }
+        else{
+            $(this.id+11).attr('placeholder', '-');
+        }
+
+    }
 
     checkForYatzy(diceList){ // tar emot lista med nr från tärningar
         var yatzy = true;
@@ -144,61 +198,6 @@ class User extends Base {
             $(this.id+16).attr("placeholder", "-"); // sätter placeholder till -
 
         }
-    }
-
-    checkForFyrtal(diceList){
-
-      var one = 0;
-      var two = 0;
-      var three = 0;
-      var four = 0;
-      var five = 0;
-      var six = 0;
-
-      for(let i = 0; i < diceList.length; i++){
-        if(diceList[i] === 1){
-          one++;
-        }
-        else if(diceList[i] === 2){
-          two += 2;
-        }
-        else if(diceList[i] === 3){
-          three += 3;
-        }
-        else if(diceList[i] === 4){
-          four += 4;
-        }
-        else if(diceList[i] === 5){
-          five += 5;
-        }
-        else{
-          six += 6;
-        }
-      }
-
-      if(one >= 4){
-        console.log(one);
-        $(this.id+11).attr('placeholder', '4');
-      }
-      else if(two >= 8){
-        $(this.id+11).attr('placeholder', '8');
-      }
-      else if(three >= 12){
-        $(this.id+11).attr('placeholder', '12');
-      }
-      else if(four >= 16){
-        $(this.id+11).attr('placeholder', '16');
-      }
-      else if(five >= 20){
-        $(this.id+11).attr('placeholder', '20');
-      }
-      else if(six >= 24){
-        $(this.id+11).attr('placeholder', '24');
-      }
-      else{
-        $(this.id+11).attr('placeholder', '-');
-      }
-
     }
 
 
