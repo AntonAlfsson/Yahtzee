@@ -39,6 +39,7 @@ class User extends Base {
         this.checkForFyrtal(diceNumber);
         this.checkForTretal(diceNumber);
         this.checkForSmallStraight(diceNumber);
+        this.checkForHouse(diceNumber);
     }
 
     activeScoreBoard(){
@@ -288,6 +289,61 @@ class User extends Base {
         }
         else{
             $(this.id+11).attr('placeholder', '-');
+        }
+
+    }
+
+    checkForHouse(diceNumber){
+
+        var one = 0;
+        var two = 0;
+        var three = 0;
+        var four = 0;
+        var five = 0;
+        var six = 0;
+
+        var twoOfTheSame = false;
+        var threeOfTheSame = false;
+
+        //Går igenom diceNumber och ser hur många det finns av varje sort
+        for(let i = 0; i < diceNumber.length; i++){
+           if(diceNumber[i] === 1){
+                one++;
+            }
+            else if(diceNumber[i] === 2){
+                two += 2;
+            }
+            else if(diceNumber[i] === 3){
+                three += 3;
+            }
+            else if(diceNumber[i] === 4){
+                four += 4;
+            }
+            else if(diceNumber[i] === 5){
+                five += 5;
+            }
+            else{
+                six += 6;
+            }
+        }
+
+        //Om det finns två av något, ändra twoOfTheSame till true
+        if (one === 2 || two === 4 || three === 6 || four === 8 || five === 10 || six === 12){
+            twoOfTheSame = true;
+        }
+        //Om det finns tre av något, ändra threeOfTheSame till true
+        if (one === 3 || two === 6 || three === 9 || four === 12 || five === 15 || six === 18){
+            threeOfTheSame = true;
+        }
+
+        //Räkna ihop totalen av alla tärningar
+        var diceNumberSum = one+two+three+four+five+six;
+
+        //Om båda villkoren uppfylls, skriv ut totalen i score board
+        if (twoOfTheSame && threeOfTheSame){
+            $(this.id+12).attr('placeholder', diceNumberSum);
+        }else{
+            $(this.id+12).attr('placeholder', '-');
         }
 
     }
