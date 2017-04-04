@@ -21,9 +21,11 @@ class User extends Base {
     }
 
     getDices(dices){
+        $(this.class).removeAttr('placeholder');
+        
         var diceNumber = [dices[0].currentNumber, dices[1].currentNumber, dices[2].currentNumber, dices[3].currentNumber, dices[4].currentNumber];
         // nu har vi diceNumber med alla nr från seaste kastet att skicka vidare in i metoder
-
+        
         $(this.class).on('click', function(event){ // skapar ett event on click
             var el = '#' + event.target.id; // tar emot det som klickats
             if($(el).attr('placeholder') != undefined && !$(el).attr('readonly')){ // kontrollerar att det ej är undefined
@@ -58,7 +60,6 @@ class User extends Base {
 
     setTotalScore(callback){
         $(this.class).attr({'disabled': 'disabled'});
-        $(this.class).removeAttr('placeholder');
         $(this.class).off();
         var tot = 0;
 
@@ -108,9 +109,9 @@ class User extends Base {
         var four = 0;
         var five = 0;
         var six = 0;
-
+        
         for (let i = 0; i < diceNumber.length; i++){ //Loopar tärningarna och räknar summa av varje siffra
-            if (diceNumber[i]===1)
+            if (diceNumber[i] === 1)
                 one++;
             else if (diceNumber[i]===2)
                 two=two+2;
@@ -123,13 +124,44 @@ class User extends Base {
             else if (diceNumber[i]===6)
                 six=six+6;
         }
+        
+        console.log(one, two, three, four, five, six);
+        
+        if(one == 0){
+            $(this.id+0).attr("placeholder", '-');
+        }else{
+            $(this.id+0).attr("placeholder", one); //Sätter placeholder till ones värde
+        }
 
-        $(this.id+0).attr("placeholder", one); //Sätter placeholder till ones värde
-        $(this.id+1).attr("placeholder", two); //Sätter placeholder till twos värde
-        $(this.id+2).attr("placeholder", three); //Sätter placeholder till threes värde
-        $(this.id+3).attr("placeholder", four); //Sätter placeholder till fours värde
-        $(this.id+4).attr("placeholder", five); //Sätter placeholder till fives värde
-        $(this.id+5).attr("placeholder", six); //Sätter placeholder till six värde
+        if(two == 0){
+            $(this.id+1).attr("placeholder", '-');
+        }else{
+            $(this.id+1).attr("placeholder", two); //Sätter placeholder till twos värde
+        }
+
+        if(three == 0){
+            $(this.id+2).attr("placeholder", '-');
+        }else{
+            $(this.id+2).attr("placeholder", three); //Sätter placeholder till threes värde
+        }
+
+        if(four == 0){
+            $(this.id+3).attr("placeholder", '-');
+        }else{
+            $(this.id+3).attr("placeholder", four); //Sätter placeholder till fours värde
+        }
+
+        if(five == 0){
+            $(this.id+4).attr("placeholder", '-');
+        }else{
+            $(this.id+4).attr("placeholder", five); //Sätter placeholder till fives värde
+        }
+
+        if(six == 0){
+            $(this.id+5).attr("placeholder", '-');
+        }else{
+            $(this.id+5).attr("placeholder", six); //Sätter placeholder till six värde
+        }
     }
 
     checkFor1par(diceList){
