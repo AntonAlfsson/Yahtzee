@@ -260,27 +260,27 @@ class User extends Base {
 
         if(one >= 2){
             counter++;
-            sum+=one;
+            sum+=2;
         }
         if(two >= 4){
             counter++;
-            sum+=two;
+            sum+=4;
         }
         if(three >= 6){
             counter++;
-            sum+=three;
+            sum+=6;
         }
         if(four >= 8){
             counter++;
-            sum+=four;
+            sum+=8;
         }
         if(five >= 10){
             counter++;
-            sum+=five;
+            sum+=10;
         }
         if(six >= 12){
             counter++;
-            sum+=six;
+            sum+=12;
         }
 
         if(counter >= 2){
