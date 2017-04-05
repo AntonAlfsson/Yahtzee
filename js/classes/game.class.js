@@ -123,10 +123,10 @@ class Game extends Base {
     }
 
     gameDone(){
-        $('#roll').attr("disabled", true);
         this.numberOfUsersDone++;
 
         if(this.numberOfUsersDone == this.users.length){
+            $('#roll').attr("disabled", true);
 
             //SpelId och alla användare sparas till DB
             this.saveGameRoundToDB();
