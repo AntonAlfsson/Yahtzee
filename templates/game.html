@@ -32,7 +32,47 @@ Game.addTemplate('default', function(){return `
 
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li class="highscoreButton"><a href="#">Highscores!</a></li>
+        <li class="highscoreButton "><a data-toggle="modal" href="#myModal" data-click="highscoreList">Highscores!</a></li>
+
+
+        <!-- Modal -->
+      <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p class="name0"></p>
+            <p class="name1"></p>
+            <p class="name2"></p>
+            <p class="name3"></p>
+            <p class="name4"></p>
+            <p class="name5"></p>
+            <p class="name6"></p>
+            <p class="name7"></p>
+            <p class="name8"></p>
+            <p class="name9"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
 
       </ul>
     </div><!-- /.navbar-collapse -->
