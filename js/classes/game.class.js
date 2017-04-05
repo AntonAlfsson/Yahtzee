@@ -11,6 +11,18 @@ class Game extends Base {
         this.idGame; //Undefined here, will be defined in startGame()
         this.startGame();
     }
+    
+    newGame(){
+        this.users = new UserList();
+        $('#user').attr("data-click", 'createUsers');
+        $('#roll').attr("disabled", true);
+        $('#addUser').html('');
+        this.counter = 0;
+        this.dices.resetRoll();
+        this.currentUserPlaying = 0;
+        this.numberOfUsersDone = 0;
+        this.startGame();
+    }
 
 
 
@@ -38,6 +50,7 @@ class Game extends Base {
     //Knappen Add users
     createUsers(){
         var thisGame = this;
+        $('#roll').attr("disabled", false);
 
         $('#addUser').html('');
         this.users.createUsers((user) => {
@@ -67,7 +80,7 @@ class Game extends Base {
 
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
 
-        $('#user').attr("disabled", true); // det ska inte gå att lägga till users när spelet har börjat
+        $('#user').attr("data-click", ''); // det ska inte gå att lägga till users när spelet har börjat
         this.users[this.currentUserPlaying].activeScoreBoard(); // aktiverar första spelarens scoreboard
 
         if(this.counter == 2){
@@ -110,9 +123,8 @@ class Game extends Base {
     }
 
     gameDone(){
+        $('#roll').attr("disabled", true);
         this.numberOfUsersDone++;
-        console.log(this.numberOfUsersDone);
-        console.log(this.users.length);
 
         if(this.numberOfUsersDone == this.users.length){
 
