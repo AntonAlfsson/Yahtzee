@@ -1,132 +1,132 @@
 body{
-  background-color: black;
-  background-image: url("http://www.hdwallpaper.nu/wp-content/uploads/2017/01/dice-2.jpg");
-  background-size:cover;
+    background-color: black;
+    background-image: url("http://www.hdwallpaper.nu/wp-content/uploads/2017/01/dice-2.jpg");
+    background-size:cover;
 }
 
 .table {
-  width: 100px;
-  max-height: 550px;
-  padding: 0;
+    width: 100px;
+    max-height: 550px;
+    padding: 0;
 }
 
 .scoreboardRad {
-  margin-left: 1px;
-  margin-top: 11px;
+    margin-left: 1px;
+    margin-top: 11px;
 }
 
 .gamePage{
-  background-color: #158270;
-  height: 100vh;
-  border-width: 3px;
-  border-style: solid;
-  border-top: none;
-  border-bottom: none;
-  border-color: white;
+    background-color: #158270;
+    height: 100vh;
+    border-width: 3px;
+    border-style: solid;
+    border-top: none;
+    border-bottom: none;
+    border-color: white;
 
 }
 
 tr{
-  border: solid white 2px;
-  text-align:center;
-  background-color: #567B8C;
+    border: solid white 2px;
+    text-align:center;
+    background-color: #567B8C;
 }
 
 td{
-  font-size: 12px;
-  font-weight: bold;
-  color: white;
-  padding: 2px !important;
-  margin: 0 !important;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    padding: 2px !important;
+    margin: 0 !important;
 }
 
 a{
-  font-family: 'Baloo Chettan', cursive;
-  font-size: 18px;
-  margin-top: 40px;
+    font-family: 'Baloo Chettan', cursive;
+    font-size: 18px;
+    margin-top: 40px;
 }
 
 .navbar {
-  border-radius: 0;
-  border-width: 3px;
-  border-style: solid;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-color: white;
-  background-color: #158270;
-  padding-bottom: 15px;
-  margin-left: 0;
+    border-radius: 0;
+    border-width: 3px;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-color: white;
+    background-color: #158270;
+    padding-bottom: 15px;
+    margin-left: 0;
 }
 
 .navbar-text {
-  margin: 0;
+    margin: 0;
 }
 
 .navbarFluid{
-  padding-left: 0;
-  padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .navbar-collapse{
-  padding-left: 0;
-  padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .addUserButton{
-  margin-left: 70px;
+    margin-left: 70px;
 
 }
 
 .fa-smile-o{
-  color: blue;
+    color: blue;
 }
 
 .glyphicons{
-  height: 30px;
+    height: 30px;
 }
 
 h1{
-  font-family: 'Permanent Marker', cursive;
-  font-size: 64px;
-  margin: 0;
-  margin-top: 14px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 64px;
+    margin: 0;
+    margin-top: 14px;
 }
 
 .form-control{
-  border-color: white;
-  width: 70px;
-  border-radius: 0;
-  border-bottom: hidden;
-  border-left: none;
-  font-size: 12px;
-  font-weight: bold;
-  margin-right: 0;
-  text-align: center;
+    border-color: white;
+    width: 70px;
+    border-radius: 0;
+    border-bottom: hidden;
+    border-left: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 0;
+    text-align: center;
 }
 
 .form-control:nth-child(19){
-  border-bottom: solid 2px;
+    border-bottom: solid 2px;
 }
 
 .userB {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  width: 70px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 70px;
 }
 
 .gameB {
-  padding-right: 0 !important;
-  padding-left: 0;
-  width: 100px;
+    padding-right: 0 !important;
+    padding-left: 0;
+    width: 100px;
 
 }
 
 .userScoreboard{
-  width: 70px;
-  margin-bottom: 0;
-  border-bottom: hidden;
-  border-left: hidden;
+    width: 70px;
+    margin-bottom: 0;
+    border-bottom: hidden;
+    border-left: hidden;
 }
 
 .dice{
@@ -143,5 +143,24 @@ h1{
 }
 
 .rollBtn{
-  margin-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+h1{
+    -webkit-animation-duration: 3s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: 1;
+}
+
+.middle>h1{
+    -webkit-animation-duration: 10s;
+}
+
+.middle{
+    z-index: 2;
+    position: fixed;
+    width: 500px;
+    height: 200px;
+    top: 35%;
+    left: 35%;
 }

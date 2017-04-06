@@ -11,8 +11,9 @@ class Game extends Base {
         this.idGame; //Undefined here, will be defined in startGame()
         this.startGame();
     }
-    
+
     newGame(){
+        $('.middle').remove();
         this.users = new UserList();
         $('#user').attr("data-click", 'createUsers');
         $('#roll').attr("disabled", true);
@@ -50,13 +51,16 @@ class Game extends Base {
     //Knappen Add users
     createUsers(){
         var thisGame = this;
-        $('#roll').attr("disabled", false);
 
         $('#addUser').html('');
         this.users.createUsers((user) => {
             //Efter att funktionen createUsers har kört klart, så gör de här sakerna:
             setTimeout(function(){
                 this.users = user;
+
+                if(!this.users.length == 0){ // kollar att det finns minst 1 user annars fortsätter knappen roll att vara disabled
+                    $('#roll').attr("disabled", false);
+                }
 
                 this.users.display('#addUser');
             }, 50);
@@ -130,6 +134,15 @@ class Game extends Base {
 
             //SpelId och alla användare sparas till DB
             this.saveGameRoundToDB();
+            
+            
+            $('.gamePlan').append('<div class="middle"><h1 class="animated zoomIn">Game Done!</h1></div>').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                
+            });
+            
+            
+            
+            
         }
     }
 
@@ -138,14 +151,14 @@ class Game extends Base {
     }
 
     highscoreList(){
-      var list = {};
+        var list = {};
 
-      this.db.getHighscore( (data)=>{
-        console.log(data);
-        for(let i = 0; i < data.length; i++){
-          $('.name'+i).text(data[i].User_userName + ' ' + data[i].score);
-        }
-      });
+        this.db.getHighscore( (data)=>{
+            console.log(data);
+            for(let i = 0; i < data.length; i++){
+                $('.name'+i).text(data[i].User_userName + ' ' + data[i].score);
+            }
+        });
 
     }
 

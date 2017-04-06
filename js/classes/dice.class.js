@@ -10,6 +10,11 @@ class Dice extends Base {
     rollDice(){ // metod som kollar om tärningen går att kasta
         if(this.rollable){ // om den går att kasta kallar vi på metoden generateRandomNumber
             this.generateRandomNumber(); 
+
+            //här lägger vi till och tar class 'animated shake' som får tärningarna att skaka när de rollas
+            $('#'+this.diceId).addClass('animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                $(this).removeClass('animated shake');
+            });
         }
     }
 
