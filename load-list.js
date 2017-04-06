@@ -3,6 +3,7 @@ window.load = `
   css/libs/
     cerulean.bootstrap.min.css
     bootstrap-tricks.css
+    animate.css
 
   css/main.css
 

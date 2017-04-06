@@ -145,3 +145,9 @@ h1{
 .rollBtn{
   margin-bottom: 20px;
 }
+
+h1{
+  -webkit-animation-duration: 3s;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-iteration-count: 1;
+}
