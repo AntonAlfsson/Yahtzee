@@ -13,6 +13,7 @@ class Game extends Base {
     }
 
     newGame(){
+        $('.middle').remove();
         this.users = new UserList();
         $('#user').attr("data-click", 'createUsers');
         $('#roll').attr("disabled", true);
@@ -133,6 +134,15 @@ class Game extends Base {
 
             //SpelId och alla användare sparas till DB
             this.saveGameRoundToDB();
+            
+            
+            $('.gamePlan').append('<div class="middle"><h1 class="animated zoomIn">Game Done!</h1></div>').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                
+            });
+            
+            
+            
+            
         }
     }
 
