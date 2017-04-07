@@ -38,12 +38,6 @@ class Game extends Base {
 
             //Plussar på
             this.idGame = tempIdGame+1;
-
-            //Lägger till nytt game i databasen
-            this.db.newGame({idGame: this.idGame}, ()=>{
-
-            });
-
         });
 
     }
@@ -132,17 +126,23 @@ class Game extends Base {
         if(this.numberOfUsersDone == this.users.length){
             $('#roll').attr("disabled", true);
 
-            //SpelId och alla användare sparas till DB
-            this.saveGameRoundToDB();
-            
-            
-            $('.gamePlan').append('<div class="middle"><h1 class="animated zoomIn">Game Done!</h1></div>').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-                
+            //Lägger till nytt game i databasen
+            this.db.newGame({idGame: this.idGame}, ()=>{
+                //SpelId och alla användare sparas till DB
+                this.saveGameRoundToDB();
+
             });
-            
-            
-            
-            
+
+
+
+
+            $('.gamePlan').append('<div class="middle"><h1 class="animated zoomIn">Game Done!</h1></div>').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+
+            });
+
+
+
+
         }
     }
 
