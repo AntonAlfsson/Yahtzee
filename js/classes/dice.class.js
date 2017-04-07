@@ -62,12 +62,8 @@ class Dice extends Base {
         
         if(this.rollable){
             this.rollable = false;
-            var el = '#'+this.diceId; // sparar dice id i el tillsammans med # för att söka efter
-            $(el).css('background',"grey"); // om man vill behålla tärningen blir den gråmarkerad
         }else{
             this.rollable = true;
-            var el = '#'+this.diceId;
-            $(el).css('background',"none"); // tar bort markering
         }
     }
 
