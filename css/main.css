@@ -1,7 +1,9 @@
 body{
-    background-color: black;
-    background-image: url("http://www.hdwallpaper.nu/wp-content/uploads/2017/01/dice-2.jpg");
-    background-size:cover;
+  /*background-image: url("http://www.hdwallpaper.nu/wp-content/uploads/2017/01/dice-2.jpg");
+  background-size:cover;*/
+  background-color: black;
+  height: 100vh;
+
 }
 
 .table {
@@ -16,14 +18,13 @@ body{
 }
 
 .gamePage{
-    background-color: #158270;
-    height: 100vh;
-    border-width: 3px;
-    border-style: solid;
-    border-top: none;
-    border-bottom: none;
-    border-color: white;
-
+  background-color: #158270;
+  height: 100vh;
+  border-width: 3px;
+  border-style: solid;
+  border-top: none;
+  border-bottom: none;
+  border-color: white;
 }
 
 tr{
@@ -46,17 +47,17 @@ a{
     margin-top: 40px;
 }
 
-.navbar {
-    border-radius: 0;
-    border-width: 3px;
-    border-style: solid;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    border-color: white;
-    background-color: #158270;
-    padding-bottom: 15px;
-    margin-left: 0;
+.navbar-default {
+  border-radius: 0;
+  border-width: 3px;
+  border-style: solid;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: white;
+  background-color: #158270;
+  padding-bottom: 15px;
+  margin-left: 0;
 }
 
 .navbar-text {
@@ -87,26 +88,29 @@ a{
 }
 
 h1{
-    font-family: 'Permanent Marker', cursive;
-    font-size: 64px;
-    margin: 0;
-    margin-top: 14px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 64px;
+  margin: 0;
+  margin-top: 14px;
+  text-shadow: -3px -3px black;
 }
 
 .form-control{
-    border-color: white;
-    width: 70px;
-    border-radius: 0;
-    border-bottom: hidden;
-    border-left: none;
-    font-size: 12px;
-    font-weight: bold;
-    margin-right: 0;
-    text-align: center;
+  border-color: white;
+  width: 70px;
+  border-radius: 0;
+  border-bottom: hidden;
+  border-left: none;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 0;
+  text-align: center;
+  background-color:  #567B8C;
 }
 
 .form-control:nth-child(19){
-    border-bottom: solid 2px;
+  border-bottom: solid 2px;
+  border-color: white;
 }
 
 .userB {
@@ -123,10 +127,11 @@ h1{
 }
 
 .userScoreboard{
-    width: 70px;
-    margin-bottom: 0;
-    border-bottom: hidden;
-    border-left: hidden;
+  width: 70px;
+  margin-bottom: 0;
+  border-bottom: hidden;
+  border-left: hidden;
+  overflow-y: auto;
 }
 
 .dice{
@@ -135,6 +140,7 @@ h1{
     height: 100px;
     text-align: center;
     font-size: 60px;
+    display: table-cell;
 }
 
 .row{
@@ -142,7 +148,44 @@ h1{
 }
 
 .rollBtn{
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  font-family: 'Baloo Chettan', cursive;
+  font-size: 18px;
+  background-color: #567B8C;
+  border-color: white;
+  margin-left: 19px;
+}
+
+.upperHalf {
+  height: 12vh;
+  max-width: 100vw;
+  border-style: solid;
+  border-color: white;
+  border-width: 0px 0px 2px 0px;
+  text-align: right;
+}
+
+.lowerHalf {
+  height: 12vh;
+  max-width: 100vw;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px 0px 0px 0px;
+  text-align: right;
+}
+
+h2 {
+  font-family: 'Baloo Chettan', cursive;
+  font-size: 64px;
+  color: white;
+  margin-right: 2%;
+}
+
+.dicesDiv {
+  margin-left: 85%;
+  margin-right: 5%;
+  width: 10%;
+  padding: 10px;
 }
 
 h1{
