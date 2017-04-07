@@ -77,7 +77,6 @@ class Game extends Base {
 
 
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
-
         $('#user').attr("data-click", ''); // det ska inte gå att lägga till users när spelet har börjat
         this.users[this.currentUserPlaying].activeScoreBoard(); // aktiverar första spelarens scoreboard
 
