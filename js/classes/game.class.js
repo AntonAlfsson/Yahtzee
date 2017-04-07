@@ -129,7 +129,7 @@ class Game extends Base {
 
             });
 
-            $('.gamePlan').append('<div class="middle"><h1 class="animated zoomIn">Game Done!</h1></div>').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $('.gamePage').append('<div class="middle"><h1 class="animated zoomIn">Game Done!</h1></div>').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 
             });
         }
