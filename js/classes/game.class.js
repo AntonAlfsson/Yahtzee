@@ -25,9 +25,6 @@ class Game extends Base {
         this.startGame();
     }
 
-
-
-
     startGame(){
 
         var tempIdGame = 0;
@@ -132,21 +129,10 @@ class Game extends Base {
 
             });
 
-
-
-
             $('.gamePlan').append('<div class="middle"><h1 class="animated zoomIn">Game Done!</h1></div>').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 
             });
-
-
-
-
         }
-    }
-
-    gameLoop(){
-
     }
 
     highscoreList(){
