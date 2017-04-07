@@ -139,7 +139,6 @@ class Game extends Base {
         var list = {};
 
         this.db.getHighscore( (data)=>{
-            console.log(data);
             for(let i = 0; i < data.length; i++){
                 $('.name'+i).text(data[i].User_userName + ' ' + data[i].score);
             }
