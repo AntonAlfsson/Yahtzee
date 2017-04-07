@@ -25,9 +25,6 @@ class Game extends Base {
         this.startGame();
     }
 
-
-
-
     startGame(){
 
         var tempIdGame = 0;
@@ -77,7 +74,6 @@ class Game extends Base {
 
 
     pressedRoll(){ // funktion då man trycker på knappen "Roll"
-
         $('#user').attr("data-click", ''); // det ska inte gå att lägga till users när spelet har börjat
         this.users[this.currentUserPlaying].activeScoreBoard(); // aktiverar första spelarens scoreboard
 
@@ -133,21 +129,10 @@ class Game extends Base {
 
             });
 
-
-
-
             $('.gamePlan').append('<div class="middle"><h1 class="animated zoomIn">Game Done!</h1></div>').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 
             });
-
-
-
-
         }
-    }
-
-    gameLoop(){
-
     }
 
     highscoreList(){

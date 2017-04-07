@@ -1,6 +1,17 @@
 Dice.addTemplate('default', function(){return `
 
-    <button type="button" class="dice" data-click="onDiceClick" id="${this.diceId}"></button>
+<!--<button type="button" class="dice" data-click="onDiceClick" id="${this.diceId}"></button>-->
+
+<section class="cubes" id="${this.diceId}">
+    <div id="cube" name="${this.diceId}" >
+        <figure class="front">1</figure>
+        <figure class="back">2</figure>
+        <figure class="right">3</figure>
+        <figure class="left">4</figure>
+        <figure class="top">5</figure>
+        <figure class="bottom">6</figure>
+    </div>
+</section>
 
 
 `}); 

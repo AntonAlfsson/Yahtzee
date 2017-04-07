@@ -8,6 +8,14 @@ class Dice extends Base {
     }
 
     rollDice(){ // metod som kollar om tärningen går att kasta
+        var el = '#' + this.diceId;
+        $(el).off(); // stänger av föregående listener
+        var _this = this; // sparar this i _this då jag förlorar scopet i listenern
+        
+        $(el).bind( "click", function() { // startar en ny listener
+            _this.onDiceClick(); // kallar på metoden onDiceClick
+        });
+        
         if(this.rollable){ // om den går att kasta kallar vi på metoden generateRandomNumber
             this.generateRandomNumber(); 
 
@@ -19,48 +27,53 @@ class Dice extends Base {
     }
 
     generateRandomNumber(){
-        this.currentNumber = Math.floor(Math.random() * 6 + 1); // genererar ett numer mellan 1 - 6
-        var el = '#'+ this.diceId; // sparar dice id i el tillsammans med # för att söka efter
+        // genererar ett numer mellan 1 - 6
+        this.currentNumber = Math.floor(Math.random() * 6 + 1); 
         switch(this.currentNumber){
             case 1:
-                $(document).find(el).text("\u2680"); // tärning värde 1 - 6 
+                $('div[name=' + this.diceId + ']').removeClass();
+                $('div[name=' + this.diceId + ']').addClass('show-front');
                 break;
             case 2:
-                $(document).find(el).text("\u2681");
+                $('div[name=' + this.diceId + ']').removeClass();
+                $('div[name=' + this.diceId + ']').addClass('show-back');
                 break;
             case 3:
-                $(document).find(el).text("\u2682");
+                $('div[name=' + this.diceId + ']').removeClass();
+                $('div[name=' + this.diceId + ']').addClass('show-right');
                 break;
             case 4:
-                $(document).find(el).text("\u2683");
+                $('div[name=' + this.diceId + ']').removeClass();
+                $('div[name=' + this.diceId + ']').addClass('show-left');
                 break;
             case 5:
-                $(document).find(el).text("\u2684");
+                $('div[name=' + this.diceId + ']').removeClass();
+                $('div[name=' + this.diceId + ']').addClass('show-top');
                 break;
             case 6:
-                $(document).find(el).text("\u2685");
+                $('div[name=' + this.diceId + ']').removeClass();
+                $('div[name=' + this.diceId + ']').addClass('show-bottom');
                 break;
         }
 
     }
 
     onDiceClick(){ // när man klickar på tärningen ändrar man om täningen skall gå att kasta eller ej
+        
         if(this.rollable){
             this.rollable = false;
-            var el = '#'+this.diceId; // sparar dice id i el tillsammans med # för att söka efter
-            $(el).css('background',"grey"); // om man vill behålla tärningen blir den gråmarkerad
         }else{
             this.rollable = true;
-            var el = '#'+this.diceId;
-            $(el).css('background',"none"); // tar bort markering
         }
     }
 
     reset(){ // återställer tärningen till kastbar ---- tänkt att nvändas mellan varje runda
         this.rollable = true;
-        var el = '#'+this.diceId; // sparar dice id i el tillsammans med # för att söka efter
-        $(el).css('background',"none");
-        $(document).find(el).text("");
+        var el =  '#' + this.diceId;
+        $(el).off();
+       // var el = '#'+this.diceId; // sparar dice id i el tillsammans med # för att söka efter
+        //$(el).css('background',"none");
+        //$(document).find(el).text("");
     }
 
 
