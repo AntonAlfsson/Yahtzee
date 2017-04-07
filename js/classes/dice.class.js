@@ -11,11 +11,11 @@ class Dice extends Base {
         var el = '#' + this.diceId;
         $(el).off(); // stänger av föregående listener
         var _this = this; // sparar this i _this då jag förlorar scopet i listenern
-        
+
         $(el).bind( "click", function() { // startar en ny listener
             _this.onDiceClick(); // kallar på metoden onDiceClick
         });
-        
+
         if(this.rollable){ // om den går att kasta kallar vi på metoden generateRandomNumber
             this.generateRandomNumber(); 
 
@@ -59,11 +59,15 @@ class Dice extends Base {
     }
 
     onDiceClick(){ // när man klickar på tärningen ändrar man om täningen skall gå att kasta eller ej
-        
+
         if(this.rollable){
             this.rollable = false;
+            var el = '#' + this.diceId + ' figure';
+            $(el).css({color: 'black'});
         }else{
             this.rollable = true;
+            var el = '#' + this.diceId + ' figure';
+            $(el).css({color: 'white'});
         }
     }
 
@@ -71,7 +75,11 @@ class Dice extends Base {
         this.rollable = true;
         var el =  '#' + this.diceId;
         $(el).off();
-       // var el = '#'+this.diceId; // sparar dice id i el tillsammans med # för att söka efter
+
+        var e = '#' + 'cube figure';
+        $(e).css({color: 'white'});
+
+        // var el = '#'+this.diceId; // sparar dice id i el tillsammans med # för att söka efter
         //$(el).css('background',"none");
         //$(document).find(el).text("");
     }
