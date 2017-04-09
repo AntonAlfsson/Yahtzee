@@ -48,6 +48,10 @@ input[type=text]:enabled {
     color: #E7E5E5;
 }
 
+input[type=text]:read-only{
+  background-color: #1B2640;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #E7E5E5 !important;
 }
@@ -62,8 +66,6 @@ a{
 a:hover{
   color: #81817E !important;
 }
-
-
 
 .navbar-default {
   border-radius: 0;
@@ -252,7 +254,7 @@ h1{
   }
 
   .middleGameP{
-    
+
   }
 
 }
