@@ -1,13 +1,10 @@
 body{
-  /*background-image: url("http://www.hdwallpaper.nu/wp-content/uploads/2017/01/dice-2.jpg");
-  background-size:cover;*/
-  background-color: black;
-  height: 100vh;
-
+  background-image: url("http://www.hdwallpaper.nu/wp-content/uploads/2017/01/dice-2.jpg");
+  background-size:cover;
 }
 
 .table {
-    width: 100px;
+    width: 110px;
     max-height: 550px;
     padding: 0;
 }
@@ -18,34 +15,55 @@ body{
 }
 
 .gamePage{
-  background-color: #158270;
+  background-color: #323232;
   height: 100vh;
   border-width: 3px;
   border-style: solid;
   border-top: none;
   border-bottom: none;
-  border-color: white;
+  border-color: #E7E5E5;
 }
 
 tr{
-    border: solid white 2px;
+    border: solid #E7E5E5 2px;
     text-align:center;
-    background-color: #567B8C;
+    background-color: #84002E;
 }
 
 td{
-    font-size: 12px;
+    font-size: 13px;
     font-weight: bold;
     color: white;
-    padding: 2px !important;
+    padding: 4px !important;
     margin: 0 !important;
+}
+
+input[type=text]:disabled {
+    background: #1B2640;
+    color: #E7E5E5;
+}
+
+input[type=text]:enabled {
+    background: #81817E;
+    color: #E7E5E5;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #E7E5E5 !important;
 }
 
 a{
     font-family: 'Baloo Chettan', cursive;
     font-size: 18px;
     margin-top: 40px;
+    color: #E7E5E5 !important;
 }
+
+a:hover{
+  color: #81817E !important;
+}
+
+
 
 .navbar-default {
   border-radius: 0;
@@ -54,8 +72,8 @@ a{
   border-left: none;
   border-right: none;
   border-top: none;
-  border-color: white;
-  background-color: #158270;
+  border-color: #E7E5E5;
+  background-color: #323232;
   padding-bottom: 15px;
   margin-left: 0;
 }
@@ -76,7 +94,6 @@ a{
 
 .addUserButton{
     margin-left: 70px;
-
 }
 
 .fa-smile-o{
@@ -93,30 +110,31 @@ h1{
   margin: 0;
   margin-top: 14px;
   text-shadow: -3px -3px black;
+  color: #E7E5E5;
 }
 
 .form-control{
-  border-color: white;
-  width: 70px;
+  border-color: #E7E5E5;
+  width: 110px;
   border-radius: 0;
   border-bottom: hidden;
   border-left: none;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
   margin-right: 0;
   text-align: center;
-  background-color:  #567B8C;
+  margin-left: 10px;
 }
 
 .form-control:nth-child(19){
   border-bottom: solid 2px;
-  border-color: white;
+  border-color: #E7E5E5;
 }
 
 .userB {
     padding-left: 0 !important;
     padding-right: 0 !important;
-    width: 70px;
+    width: 110px;
 }
 
 .gameB {
@@ -127,11 +145,12 @@ h1{
 }
 
 .userScoreboard{
-  width: 70px;
+  width: 110px;
   margin-bottom: 0;
   border-bottom: hidden;
   border-left: hidden;
   overflow-y: auto;
+  margin-left: 10px;
 }
 
 .dice{
@@ -151,27 +170,31 @@ h1{
   margin-bottom: 20px;
   font-family: 'Baloo Chettan', cursive;
   font-size: 18px;
-  background-color: #567B8C;
-  border-color: white;
+  background-color: #1B2640;
+  border-color: #E7E5E5;
   margin-left: 19px;
 }
 
-.upperHalf {
-  height: 12vh;
-  max-width: 100vw;
-  border-style: solid;
-  border-color: white;
-  border-width: 0px 0px 2px 0px;
-  text-align: right;
+.rollBtn:hover{
+  border-color: #E7E5E5 !important;
+  background-color: #81817E !important;
 }
 
-.lowerHalf {
-  height: 12vh;
-  max-width: 100vw;
-  border-style: solid;
-  border-color: white;
-  border-width: 2px 0px 0px 0px;
-  text-align: right;
+.middleGameP{
+  padding: 0px !important;
+}
+
+.rightGameP{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  width: 120px;
+  margin-right: 1%;
+  align-content:flex-start;
+  padding-bottom: 30px !important;
+}
+
+.dicesDiv{
+
 }
 
 h2 {
@@ -179,13 +202,6 @@ h2 {
   font-size: 64px;
   color: white;
   margin-right: 2%;
-}
-
-.dicesDiv {
-  margin-left: 85%;
-  margin-right: 5%;
-  width: 10%;
-  padding: 10px;
 }
 
 h1{
@@ -207,6 +223,83 @@ h1{
     left: 35%;
 }
 
+/*------------------RESPONSIV DESIGN--------------------------*/
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+
+  .headerText{
+    margin: 13px 0px 0px 15px !important;
+    padding: 0px !important;
+    width: 170px;
+    font-size: 30px;
+    display: inline-flex;
+  }
+
+  .addUserButton{
+    margin-left: 15px;
+  }
+
+  .newGameBtn{
+    margin-left: 15px;
+  }
+
+  .highscoreButton{
+    margin-left: 15px;
+  }
+
+  .navbar-nav{
+    margin: 0px;
+  }
+
+  .middleGameP{
+    
+  }
+
+}
+
+/*------------------MODAL--------------------------*/
+
+.modal-header{
+  background-color: #84002E;
+  color:white !important;
+  text-align: center;
+  font-size: 30px;
+  border: 3px solid #E7E5E5;
+}
+
+.modal-title{
+  font-size: 40px;
+  color: #E7E5E5;
+  font-family: 'Baloo Chettan', cursive;
+}
+
+.closeModal{
+  font-family: 'Baloo Chettan', cursive;
+  font-size: 18px;
+  background-color: #1B2640;
+  border-color: #E7E5E5;
+}
+
+.closeModal:hover{
+  border-color: #E7E5E5 !important;
+  background-color: #81817E !important;
+}
+
+.modal-body{
+  border-width: 0px 3px 0px 3px;
+  border-style: solid;
+  border-color: #E7E5E5;
+}
+
+.modal-footer{
+  border-radius: 0;
+  border: 0px 3px 3px 3px;
+  border-style: solid;
+  border-color: #E7E5E5;
+}
+
+
+
 /*------------------TÄRNINGAR--------------------------*/
 
 .cubes {
@@ -215,6 +308,10 @@ h1{
     height: 100px;
     position: relative;
     perspective: 1000px;
+}
+
+.cubes:first-child{
+  margin-top:0;
 }
 
 #cube {
@@ -238,27 +335,27 @@ h1{
 }
 
 #cube .bottom {
-    background: hsla( 300, 100%, 50%, 0.7 );
+    background: rgba(129, 129, 126, 0.9);
 }
 
 #cube .front {
-    background: hsla( 0, 100%, 50%, 0.7 );
+    background: rgba(231, 229, 229, 0.9);
 }
 
 #cube .back {
-    background: hsla( 60, 100%, 50%, 0.7 );
+    background: rgba(129, 129, 126, 0.3);
 }
 
 #cube .right {
-    background: hsla( 120, 100%, 50%, 0.7 );
+    background: rgba(231, 229, 229, 0.9);
 }
 
 #cube .left {
-    background: hsla( 180, 100%, 50%, 0.7 );
+    background: rgba(129, 129, 126, 0.9);
 }
 
 #cube .top {
-    background: hsla( 240, 100%, 50%, 0.7 );
+    background: rgba(231, 229, 229, 0.9);
 }
 
 #cube .front  { transform: rotateY(   0deg ); }

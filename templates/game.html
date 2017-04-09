@@ -6,6 +6,7 @@ Game.addTemplate('default', function(){return `
   <div class="container-fluid navbarFluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
+      <h1 class="headerText">Yatzy</h1>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -17,20 +18,12 @@ Game.addTemplate('default', function(){return `
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <div class="navbar-text">
-          <h1>Yatzy</span></span></h1>
-        </div>
         <li class="addUserButton" id="user" data-click="createUsers"><a href="#"><i class="ion-person-add"></i>  Add player </a></li>
-        <li class="" id="" data-click="newGame"><a href="#"><i class="ion-plus-round"></i> New game</a></li>
+        <li class="newGameBtn" id="" data-click="newGame"><a href="#"><i class="ion-plus-round"></i> New game</a></li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
 
-        </div>
-
-      </form>
       <ul class="nav navbar-nav navbar-right">
-        <li class="highscoreButton "><a data-toggle="modal" href="#myModal" data-click="highscoreList"><i class="ion-star"></i> Highscores!</a></li>
+        <li class="highscoreButton "><a data-toggle="modal" href="#myModal" class="highscoreBtn" data-click="highscoreList"><i class="ion-star"></i> Highscores</a></li>
 
 
         <!-- Modal -->
@@ -40,8 +33,7 @@ Game.addTemplate('default', function(){return `
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
+            <h4 class="modal-title">Highscores!</h4>
           </div>
           <div class="modal-body">
             <p class="name0"></p>
@@ -56,7 +48,7 @@ Game.addTemplate('default', function(){return `
             <p class="name9"></p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Close</button>
           </div>
         </div>
 
@@ -80,29 +72,29 @@ Game.addTemplate('default', function(){return `
 
 
     <div class="row scoreboardRad">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2 gameB">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 gameB">
             <table class="table table-bordered">
                 <tbody>
                     <tr>
                         <td>Name:</td>
                     </tr>
                     <tr>
-                        <td>1:</td>
+                        <td>Aces:</td>
                     </tr>
                     <tr>
-                        <td>2:</td>
+                        <td>Twos:</td>
                     </tr>
                     <tr>
-                        <td>3:</td>
+                        <td>Threes:</td>
                     </tr>
                     <tr>
-                        <td>4:</td>
+                        <td>Fours:</td>
                     </tr>
                     <tr>
-                        <td>5:</td>
+                        <td>Fives:</td>
                     </tr>
                     <tr>
-                        <td>6:</td>
+                        <td>Sixes:</td>
                     </tr>
                     <tr>
                         <td>Total:</td>
@@ -111,31 +103,31 @@ Game.addTemplate('default', function(){return `
                         <td>Bonus:</td>
                     </tr>
                     <tr>
-                        <td>1 par:</td>
+                        <td>One pair:</td>
                     </tr>
                     <tr>
-                        <td>2 par:</td>
+                        <td>Two pairs:</td>
                     </tr>
                     <tr>
-                        <td>Tretal:</td>
+                        <td>Three of a kind:</td>
                     </tr>
                     <tr>
-                        <td>Fyrtal:</td>
+                        <td>Four of a kind:</td>
                     </tr>
                     <tr>
-                        <td>Kåk:</td>
+                        <td>Full house:</td>
                     </tr>
                     <tr>
-                        <td>Liten straight:</td>
+                        <td>Small straight:</td>
                     </tr>
                     <tr>
-                        <td>Stor straigth:</td>
+                        <td>Large straigth:</td>
                     </tr>
                     <tr>
-                        <td>Chans:</td>
+                        <td>Chance:</td>
                     </tr>
                     <tr>
-                        <td>Yahtzee:</td>
+                        <td>Yatzy:</td>
                     </tr>
                     <tr>
                         <td>Total:</td>
@@ -144,15 +136,17 @@ Game.addTemplate('default', function(){return `
             </table>
 
         </div>
-        <div id="addUser"></div>
-        
-
-          <div class="dicesDiv" id="tarning">${this.dices.display()} </div>
-
-
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 middleGameP">
+          <div id="addUser"></div>
+        </div>
+       <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 rightGameP">
+          <div class="dicesDiv" id="tarning">
+            ${this.dices.display()}
+          </div>
+        </div>
     </div>
     <div class="row buttonRow">
-        <div class="col-xs-2">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-2">
             <button type="button" id="roll" class="btn btn-default rollBtn" data-click="pressedRoll" disabled>Roll</button>
         </div>
     </div>

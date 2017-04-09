@@ -25,4 +25,5 @@ class App {
         $('.page-content').empty();
         page.display('.page-content');
       }
+      
 }
