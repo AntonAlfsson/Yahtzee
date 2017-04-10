@@ -140,10 +140,10 @@ class Game extends Base {
 
         this.db.getHighscore( (data)=>{
             for(let i = 0; i < data.length; i++){
-                $('.name'+i).text(data[i].User_userName + ' ' + data[i].score);
+                let j = i + 1;
+                $('.name'+i).text(j + '. ' + data[i].User_userName + ' ' + data[i].score + 'p');
             }
         });
-
     }
 
 
