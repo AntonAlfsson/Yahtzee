@@ -16,7 +16,7 @@ body{
 
 .gamePage{
   background-color: #323232;
-  height: 100vh;
+  min-height: 100vh;
   border-width: 3px;
   border-style: solid;
   border-top: none;
@@ -253,8 +253,12 @@ h1{
     margin: 0px;
   }
 
-  .middleGameP{
+  .buttonRow{
+    max-width: 100%;
+  }
 
+  .scoreboardRad{
+    max-width: 100%;
   }
 
 }

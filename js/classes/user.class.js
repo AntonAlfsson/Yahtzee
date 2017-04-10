@@ -91,7 +91,7 @@ class User extends Base {
                     b1 = false;
                 }
             }
-        
+
             return callback(b1);
     }
 
@@ -461,16 +461,16 @@ class User extends Base {
 
         var match = true;
 
-        for (var i = 0; i < diceNumber.length; i++){ //Loopar genom båda arrayerna 
+        for (var i = 0; i < diceNumber.length; i++){ //Loopar genom båda arrayerna
             if (diceNumber[i] !== smallStraightList[i]){
                 match = false;
-            }          
+            }
         }
         if (match){
             $(this.id+13).attr("placeholder", 15);//Sätter placeholder till small straights värde
-        }else{ 
+        }else{
             $(this.id+13).attr('placeholder', '-'); //Skriver ut "-"
-        } 
+        }
 
     }
 
@@ -481,16 +481,16 @@ class User extends Base {
 
         var match = true;
 
-        for (var i = 0; i < diceNumber.length; i++){ //Loopar genom båda arrayerna 
+        for (var i = 0; i < diceNumber.length; i++){ //Loopar genom båda arrayerna
             if (diceNumber[i] !== largeStraightList[i]){
                 match = false;
-            }          
+            }
         }
         if (match){
             $(this.id+14).attr("placeholder", 20);//Sätter placeholder till small straights värde
-        }else{ 
+        }else{
             $(this.id+14).attr('placeholder', '-'); //Skriver ut "-"
-        } 
+        }
 
     }
 
