@@ -16,15 +16,6 @@ class User extends Base {
             this.displayName = this.userName;
         }
 
-        this.startScoreList(); //Hämtar metod för att skapa listan med 18 tomma platser
-
-    }
-
-    //Kanske ett sätt att få en lista med 18 tomma platser?
-    startScoreList(){
-        for (var i = 0; i < 18; i++){
-            this.scoreList.push('');
-        }
     }
 
     getDices(dices){
