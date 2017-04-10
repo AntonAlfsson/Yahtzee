@@ -9,6 +9,13 @@ class User extends Base {
         this.id = '#' + this.userName; // id till scoreboard
         this.class = '.' + this.userName;
 
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+        if(isMobile){
+            this.displayName = this.userName.substring(0,3);
+        }else{
+            this.displayName = this.userName;
+        }
+
         this.startScoreList(); //Hämtar metod för att skapa listan med 18 tomma platser
 
     }
@@ -84,15 +91,15 @@ class User extends Base {
 
         this.setBonusHalfScore();
 
-            var b1 = true;
+        var b1 = true;
 
-            for(let i = 0; i < 17; i++){
-                if(this.scoreList[i] === ""){
-                    b1 = false;
-                }
+        for(let i = 0; i < 17; i++){
+            if(this.scoreList[i] === ""){
+                b1 = false;
             }
-        
-            return callback(b1);
+        }
+
+        return callback(b1);
     }
 
     setBonusHalfScore(){
