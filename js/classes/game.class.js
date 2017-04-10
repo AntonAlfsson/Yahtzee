@@ -149,6 +149,7 @@ class Game extends Base {
 
 
 
+
     static get sqlQueries(){
         return {
             getGame: `

@@ -15,13 +15,13 @@ body{
 }
 
 .gamePage{
-    background-color: #323232;
-    height: 100vh;
-    border-width: 3px;
-    border-style: solid;
-    border-top: none;
-    border-bottom: none;
-    border-color: #E7E5E5;
+  background-color: #323232;
+  min-height: 100vh;
+  border-width: 3px;
+  border-style: solid;
+  border-top: none;
+  border-bottom: none;
+  border-color: #E7E5E5;
 }
 
 tr{
