@@ -42,7 +42,8 @@ class Game extends Base {
     //Knappen Add users
     createUsers(){
         var thisGame = this;
-
+        if(this.users.length <= 3){
+      
         $('#addUser').html('');
         this.users.createUsers((user) => {
             //Efter att funktionen createUsers har kört klart, så gör de här sakerna:
@@ -57,7 +58,7 @@ class Game extends Base {
             }, 50);
         });
 
-
+        }
     }
 
     //Sparar data i Game_has_user
