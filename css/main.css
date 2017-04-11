@@ -25,7 +25,7 @@ body{
 }
 
 tr{
-    border: solid #E7E5E5 2px;
+
     text-align:center;
     background-color: #84002E;
 }
@@ -36,6 +36,30 @@ td{
     color: white;
     padding: 4px !important;
     margin: 0 !important;
+    border: 2px solid #E7E5E5 !important;
+}
+
+.inputField{
+  padding: 0px !important;
+  margin: 0px !important;
+  font-size: 0px !important;
+}
+
+.form-control{
+    font-weight: bold;
+    text-align: center;
+    border: none !important;
+    border-radius: 0;
+}
+
+.user-form-control{
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  height: 26.5px;
+  padding: 4px !important;
+  margin: 0 !important;
+
 }
 
 input[type=text]:disabled {
@@ -115,24 +139,6 @@ h1{
     color: #E7E5E5;
 }
 
-.form-control{
-    border-color: #E7E5E5;
-    width: 110px;
-    border-radius: 0;
-    border-bottom: hidden;
-    border-left: none;
-    font-size: 13px;
-    font-weight: bold;
-    margin-right: 0;
-    text-align: center;
-    margin-left: 10px;
-}
-
-.form-control:nth-child(19){
-    border-bottom: solid 2px;
-    border-color: #E7E5E5;
-}
-
 .userB {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -149,7 +155,6 @@ h1{
 .userScoreboard{
     width: 110px;
     margin-bottom: 0;
-    border-bottom: hidden;
     border-left: hidden;
     overflow-y: auto;
     margin-left: 10px;
@@ -366,12 +371,25 @@ h1{
         display: inline-flex;
     }
 
+    .buttonRow{
+      margin: auto;
+    }
+
+    .scoreboardRad{
+      margin: auto;
+    }
+
     .addUserButton{
         margin-left: 15px;
     }
 
     .newGameBtn{
         margin-left: 15px;
+    }
+
+    .buttonRowCol{
+      padding-left: 40%;
+      padding-right: 40%;
     }
 
     .highscoreButton{
@@ -382,24 +400,26 @@ h1{
         margin: 0px;
     }
 
-    .middleGameP{
-
-    }
-
     .userB{
         width: 40px;
     }
 
     .userScoreboard{
-        width: 40px !important;
+        width: 39.5px !important;
     }
     .form-control{
-        width: 40px !important;
+
         padding: 0px !important;
     }
-    
+
     .rightGameP{
         width: 50px;
+        margin-left: 19px;
+        margin-right: 0;
+    }
+
+    .rollBtn{
+      margin-left: 0;
     }
 
     .cubes {
@@ -429,6 +449,5 @@ h1{
     #cube.show-left   { transform: translateZ( -20px ) rotateY(   90deg ); }
     #cube.show-top    { transform: translateZ( -20px ) rotateX(  -90deg ); }
     #cube.show-bottom { transform: translateZ( -20px ) rotateX(   90deg ); }
-
 
 }

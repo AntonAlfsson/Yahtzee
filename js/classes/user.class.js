@@ -16,7 +16,7 @@ class User extends Base {
             this.displayName = this.userName;
         }
 
-        this.startScoreList(); //Hämtar metod för att skapa listan med 18 tomma platser
+      //  this.startScoreList(); //Hämtar metod för att skapa listan med 18 tomma platser
 
     }
 
