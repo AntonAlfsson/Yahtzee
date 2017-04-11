@@ -224,10 +224,11 @@ h1{
 .middle{
     z-index: 2;
     position: fixed;
-    width: 500px;
-    height: 200px;
+    width: 50%;
+    height: 20%;
     top: 35%;
     left: 35%;
+    margin: auto;
 }
 
 
