@@ -311,7 +311,7 @@ h1{
 }
 
 #cube .bottom {
-    background: rgba(129, 129, 126, 0.9);
+    background: rgba(231, 229, 229, 0.9);
 }
 
 #cube .front {
@@ -319,7 +319,7 @@ h1{
 }
 
 #cube .back {
-    background: rgba(129, 129, 126, 0.3);
+    background: rgba(231, 229, 229, 0.9);
 }
 
 #cube .right {
@@ -327,7 +327,7 @@ h1{
 }
 
 #cube .left {
-    background: rgba(129, 129, 126, 0.9);
+    background: rgba(231, 229, 229, 0.9);
 }
 
 #cube .top {
