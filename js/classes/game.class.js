@@ -46,7 +46,7 @@ class Game extends Base {
     createUsers(){
         var thisGame = this;
         if(this.users.length <= 3){
-      
+
         $('#addUser').html('');
         this.users.createUsers((user) => {
             //Efter att funktionen createUsers har kört klart, så gör de här sakerna:
@@ -58,6 +58,9 @@ class Game extends Base {
                 }
 
                 this.users.display('#addUser');
+                var maxH=0;
+                $('table').each(function(){if($(this).height() > maxH){maxH = $(this).height();}})
+                $('table').height(maxH);
             }, 50);
         });
 

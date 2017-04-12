@@ -5,7 +5,7 @@ body{
 
 .table {
     width: 110px;
-    max-height: 550px;
+    /*max-height: 550px;*/
     padding: 0;
 }
 
@@ -25,7 +25,6 @@ body{
 }
 
 tr{
-
     text-align:center;
     background-color: #84002E;
 }
@@ -37,6 +36,7 @@ td{
     padding: 4px !important;
     margin: 0 !important;
     border: 2px solid #E7E5E5 !important;
+    height: 28.5px !important;
 }
 
 .inputField{
@@ -315,7 +315,7 @@ h1{
 }
 
 #cube .front {
-    background: rgba(231, 229, 229, 0.9);
+    background: rgba(129, 129, 126, 0.9);
 }
 
 #cube .back {
@@ -323,7 +323,7 @@ h1{
 }
 
 #cube .right {
-    background: rgba(231, 229, 229, 0.9);
+    background: rgba(129, 129, 126, 0.9);
 }
 
 #cube .left {
@@ -331,7 +331,7 @@ h1{
 }
 
 #cube .top {
-    background: rgba(231, 229, 229, 0.9);
+    background: rgba(129, 129, 126, 0.9);
 }
 
 #cube .front  { transform: rotateY(   0deg ); }
