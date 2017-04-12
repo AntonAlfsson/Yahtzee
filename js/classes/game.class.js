@@ -57,9 +57,12 @@ class Game extends Base {
                     if(!this.users.length == 0){ // kollar att det finns minst 1 user annars fortsätter knappen roll att vara disabled
                         $('#roll').attr("disabled", false);
                     }
-
                     this.users.display('#addUser');
+                    var maxH=0;
+                    $('table').each(function(){if($(this).height() > maxH){maxH = $(this).height();}})
+                    $('table').height(maxH);
                 }, 50);
+
             });
 
         }
