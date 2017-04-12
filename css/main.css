@@ -53,12 +53,12 @@ td{
 }
 
 .user-form-control{
-  font-size: 13px;
-  font-weight: bold;
-  color: white;
-  height: 27px;
-  padding: 4px !important;
-  margin: 0 !important;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    height: 27px;
+    padding: 4px !important;
+    margin: 0 !important;
 
 }
 
@@ -315,7 +315,7 @@ h1{
 }
 
 #cube .front {
-    background: rgba(129, 129, 126, 0.9);
+    background: rgba(231, 229, 229, 0.9);
 }
 
 #cube .back {
@@ -323,7 +323,7 @@ h1{
 }
 
 #cube .right {
-    background: rgba(129, 129, 126, 0.9);
+    background: rgba(231, 229, 229, 0.9);
 }
 
 #cube .left {
@@ -331,7 +331,7 @@ h1{
 }
 
 #cube .top {
-    background: rgba(129, 129, 126, 0.9);
+    background: rgba(231, 229, 229, 0.9);
 }
 
 #cube .front  { transform: rotateY(   0deg ); }
