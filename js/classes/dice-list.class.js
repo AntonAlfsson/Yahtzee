@@ -1,12 +1,12 @@
 class DiceList extends List {
 
-	constructor() {
+    constructor() {
         super(Dice);		
-		
+
         this.createDices();
-        
-	}
-    
+
+    }
+
     createDices(){
         for(var i = 1; i < 6; i++){
             var diceId = 'dice' + i; 
@@ -14,23 +14,23 @@ class DiceList extends List {
         }
     }
 
-	rollDice() {
+    rollDice() {
 
-		for(var i = 0; i < 5; i++){
-			this[i].rollDice();
-			
+        for(var i = 0; i < 5; i++){
+            this[i].rollDice();
 
-		}
-	}
 
-	resetRoll() {
+        }
+    }
 
-		for(var i = 0; i < 5; i++){
-			this[i].reset();
-		}
-			
-	}
- 
+    resetRoll() {
 
- 
+        for(var i = 0; i < 5; i++){
+            this[i].reset();
+        }
+
+    }
+
+
+
 }

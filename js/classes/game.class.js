@@ -14,17 +14,18 @@ class Game extends Base {
 
     newGame(){
         var areYouSure = confirm('Are you sure?');
+
         if(areYouSure){
-        $('.middle').remove();
-        this.users = new UserList();
-        $('#user').attr("data-click", 'createUsers');
-        $('#roll').attr("disabled", true);
-        $('#addUser').html('');
-        this.counter = 0;
-        this.dices.resetRoll();
-        this.currentUserPlaying = 0;
-        this.numberOfUsersDone = 0;
-        this.startGame();
+            $('.middle').remove();
+            this.users = new UserList();
+            $('#user').attr("data-click", 'createUsers');
+            $('#roll').attr("disabled", true);
+            $('#addUser').html('');
+            this.counter = 0;
+            this.dices.resetRoll();
+            this.currentUserPlaying = 0;
+            this.numberOfUsersDone = 0;
+            this.startGame();
         }
     }
 
@@ -46,20 +47,20 @@ class Game extends Base {
     createUsers(){
         var thisGame = this;
         if(this.users.length <= 3){
-      
-        $('#addUser').html('');
-        this.users.createUsers((user) => {
-            //Efter att funktionen createUsers har kört klart, så gör de här sakerna:
-            setTimeout(function(){
-                this.users = user;
 
-                if(!this.users.length == 0){ // kollar att det finns minst 1 user annars fortsätter knappen roll att vara disabled
-                    $('#roll').attr("disabled", false);
-                }
+            $('#addUser').html('');
+            this.users.createUsers((user) => {
+                //Efter att funktionen createUsers har kört klart, så gör de här sakerna:
+                setTimeout(function(){
+                    this.users = user;
 
-                this.users.display('#addUser');
-            }, 50);
-        });
+                    if(!this.users.length == 0){ // kollar att det finns minst 1 user annars fortsätter knappen roll att vara disabled
+                        $('#roll').attr("disabled", false);
+                    }
+
+                    this.users.display('#addUser');
+                }, 50);
+            });
 
         }
     }

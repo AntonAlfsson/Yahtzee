@@ -15,13 +15,13 @@ body{
 }
 
 .gamePage{
-  background-color: #323232;
-  min-height: 100vh;
-  border-width: 3px;
-  border-style: solid;
-  border-top: none;
-  border-bottom: none;
-  border-color: #E7E5E5;
+    background-color: #323232;
+    min-height: 100vh;
+    border-width: 3px;
+    border-style: solid;
+    border-top: none;
+    border-bottom: none;
+    border-color: #E7E5E5;
 }
 
 tr{
@@ -40,9 +40,9 @@ td{
 }
 
 .inputField{
-  padding: 0px !important;
-  margin: 0px !important;
-  font-size: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-size: 0px !important;
 }
 
 .form-control{
@@ -53,12 +53,12 @@ td{
 }
 
 .user-form-control{
-  font-size: 13px;
-  font-weight: bold;
-  color: white;
-  height: 26px;
-  padding: 4px !important;
-  margin: 0 !important;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    height: 26px;
+    padding: 4px !important;
+    margin: 0 !important;
 
 }
 
@@ -373,11 +373,11 @@ h1{
     }
 
     .buttonRow{
-      margin: auto;
+        margin: auto;
     }
 
     .scoreboardRad{
-      margin: auto;
+        margin: auto;
     }
 
     .addUserButton{
@@ -389,8 +389,8 @@ h1{
     }
 
     .buttonRowCol{
-      padding-left: 40%;
-      padding-right: 40%;
+        padding-left: 40%;
+        padding-right: 40%;
     }
 
     .highscoreButton{
@@ -420,7 +420,7 @@ h1{
     }
 
     .rollBtn{
-      margin-left: 0;
+        margin-left: 0;
     }
 
     .cubes {

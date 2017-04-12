@@ -1,8 +1,8 @@
 class App {
 
-  constructor(){
-      this.start();
-  }
+    constructor(){
+        this.start();
+    }
 
     start(){
 
@@ -13,17 +13,17 @@ class App {
 
         var router = new Router({
 
-          '/': ()=>{ this.showPage(this.game); }
+            '/': ()=>{ this.showPage(this.game); }
 
         });
 
-      }
+    }
 
-      // page is an instance of a class
-      // all classes have the display method (inherited from Base)
-      showPage(page){
+    // page is an instance of a class
+    // all classes have the display method (inherited from Base)
+    showPage(page){
         $('.page-content').empty();
         page.display('.page-content');
-      }
-      
+    }
+
 }

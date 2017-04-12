@@ -78,10 +78,6 @@ class Dice extends Base {
 
         var e = '#' + 'cube figure';
         $(e).css({color: 'white'});
-
-        // var el = '#'+this.diceId; // sparar dice id i el tillsammans med # för att söka efter
-        //$(el).css('background',"none");
-        //$(document).find(el).text("");
     }
 
 

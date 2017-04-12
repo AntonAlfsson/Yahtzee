@@ -26,7 +26,6 @@ window.load = `
 
 
   js/classes/
-    bootstrap-size.js
     modal.class.js
     app.class.js
     user.class.js
@@ -37,7 +36,6 @@ window.load = `
 
 
   templates/
-    bootstrap-size.html
     game.html
     dice.html
     user.html
