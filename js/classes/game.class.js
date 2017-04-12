@@ -62,6 +62,7 @@ class Game extends Base {
                 $('table').each(function(){if($(this).height() > maxH){maxH = $(this).height();}})
                 $('table').height(maxH);
             }, 50);
+            
         });
 
         }
