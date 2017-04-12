@@ -13,6 +13,8 @@ class Game extends Base {
     }
 
     newGame(){
+        var areYouSure = confirm('Are you sure?');
+        if(areYouSure){
         $('.middle').remove();
         this.users = new UserList();
         $('#user').attr("data-click", 'createUsers');
@@ -23,6 +25,7 @@ class Game extends Base {
         this.currentUserPlaying = 0;
         this.numberOfUsersDone = 0;
         this.startGame();
+        }
     }
 
     startGame(){
